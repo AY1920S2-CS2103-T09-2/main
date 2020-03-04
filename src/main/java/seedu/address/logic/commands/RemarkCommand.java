@@ -1,10 +1,11 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Changes the remark of an existing person in the address book.
@@ -16,16 +17,14 @@ public class RemarkCommand extends Command {
             + "by the index number used in the last person listing. "
             + "Existing remark will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "r/ [REMARK]\n"
+            + PREFIX_REMARK + " [REMARK]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "r/ Likes to swim.";
+            + PREFIX_REMARK + " Likes to swim.";
 
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
 
     private final Index index;
     private final String remark;
-
-    public static final String MESSAGE_NOT_IMPLEMENTED_YET = "Remark command not implemented yet";
 
     /**
      * @param index of the person in the filtered person list to edit the remark
@@ -34,13 +33,17 @@ public class RemarkCommand extends Command {
     public RemarkCommand(Index index, String remark) {
         requireAllNonNull(index, remark);
 
-        this.index = index;
-        this.remark = remark;
+        index = index;
+        remark = remark;
+    }
+
+    public RemarkCommand() {
+
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-       throw new CommandException(MESSAGE_NOT_IMPLEMENTED_YET);
+       throw new CommandException(String.format(MESSAGE_ARGUMENTS, index.getOneBased(), remark));
     }
 
     @Override
