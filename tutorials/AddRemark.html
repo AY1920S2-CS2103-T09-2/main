@@ -88,7 +88,7 @@ We accomplish that by returning a <code>CommandResult</code> with an accompanyin
 <span class="keyword">import</span> <span class="include">seedu.address.model.Model</span>;
 
 <span class="comment">/**
- * Changes the remark of an existing person in the address book.
+ * Changes the remark of an existing customer in the address book.
  */</span>
 <span class="directive">public</span> <span class="type">class</span> <span class="class">RemarkCommand</span> <span class="directive">extends</span> Command {
 
@@ -145,8 +145,8 @@ Let&#8217;s change the command to throw an <code>CommandException</code> to accu
 <div class="listingblock">
 <div class="title">RemarkCommand.java</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_USAGE = COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content">: Edits the remark of the person identified </span><span class="delimiter">&quot;</span></span>
-            + <span class="string"><span class="delimiter">&quot;</span><span class="content">by the index number used in the last person listing. </span><span class="delimiter">&quot;</span></span>
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_USAGE = COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content">: Edits the remark of the customer identified </span><span class="delimiter">&quot;</span></span>
+            + <span class="string"><span class="delimiter">&quot;</span><span class="content">by the index number used in the last customer listing. </span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">Existing remark will be overwritten by the input.</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">Parameters: INDEX (must be a positive integer) </span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">r/ [REMARK]</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
@@ -188,8 +188,8 @@ While this is not a replacement for tests, it is an obvious way to tell if our c
     <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> remark;
 
     <span class="comment">/**
-     * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
+     * @param index of the customer in the filtered customer list to edit the remark
+     * @param remark of the customer to be updated to
      */</span>
     <span class="directive">public</span> RemarkCommand(Index index, <span class="predefined-type">String</span> remark) {
         requireAllNonNull(index, remark);
@@ -342,13 +342,13 @@ Don&#8217;t forget to update <code>AddressBookParser</code> to use our new <code
 <div class="paragraph">
 <p>Now that we have all the information that we need, let&#8217;s lay the groundwork for some <em>persistent</em> changes.
 We achieve that by working with the <code>Person</code> model.
-Each field in a Person is implemented as a separate class (e.g. a <code>Name</code> object represents the person&#8217;s name).
-That means we should add a <code>Remark</code> class so that we can use a <code>Remark</code> object to represent a remark given to a person.</p>
+Each field in a Person is implemented as a separate class (e.g. a <code>Name</code> object represents the customer&#8217;s name).
+That means we should add a <code>Remark</code> class so that we can use a <code>Remark</code> object to represent a remark given to a customer.</p>
 </div>
 <div class="sect2">
 <h3 id="add-a-new-code-remark-code-class"><a class="link" href="#add-a-new-code-remark-code-class">Add a new <code>Remark</code> class</a></h3>
 <div class="paragraph">
-<p>Create a new <code>Remark</code> in <code>seedu.address.model.person</code>. Since a <code>Remark</code> is a field that is similar to <code>Address</code>, we can reuse a significant bit of code.</p>
+<p>Create a new <code>Remark</code> in <code>seedu.address.model.customer</code>. Since a <code>Remark</code> is a field that is similar to <code>Address</code>, we can reuse a significant bit of code.</p>
 </div>
 <div class="paragraph">
 <p>A copy-paste and search-replace later, you should have something like <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/commit/b7a47c50c8e5f0430d343a23d2863446b6ce9298#diff-af2f075d24dfcd333876f0fbce321f25">this</a>.
@@ -368,7 +368,7 @@ These should be relatively simple changes.</p>
 <h2 id="add-a-placeholder-element-for-remark-to-the-ui"><a class="link" href="#add-a-placeholder-element-for-remark-to-the-ui">Add a placeholder element for remark to the UI</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Without getting too deep into <code>fxml</code>, let&#8217;s go on a 5 minute adventure to get some placeholder text to show up for each person.</p>
+<p>Without getting too deep into <code>fxml</code>, let&#8217;s go on a 5 minute adventure to get some placeholder text to show up for each customer.</p>
 </div>
 <div class="paragraph">
 <p>Simply add</p>
@@ -483,9 +483,9 @@ Not doing so will cause AddressBook to default to an empty address book!
 <div class="listingblock">
 <div class="title">PersonCard.java</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> PersonCard(Person person, <span class="type">int</span> displayedIndex) {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> PersonCard(Person customer, <span class="type">int</span> displayedIndex) {
     <span class="comment">//...</span>
-    remark.setText(person.getRemark().value);
+    remark.setText(customer.getRemark().value);
 }</code></pre>
 </div>
 </div>
@@ -616,4 +616,4 @@ In this case, <code>CommandTestUtil#assertCommandSuccess</code> is the best fit 
 <p>This concludes the tutorial for adding a new <code>Command</code> to AddressBook.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-10 16:00:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-10 23:46:16 UTC</div></div></div></body></html>
