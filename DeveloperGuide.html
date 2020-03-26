@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">iTrack Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-T09-2/main.git"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>iTrack Pro - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>iTrackPro Team</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -766,14 +766,132 @@ updated transaction will be added to a new index or existing index of the <code>
 <code>InventorySystem</code> class. For the <code>deleteTransactionCommand</code>, a transaction will be dropped from the <code>internalList</code>.
 Since the <code>quantity</code> and <code>sales</code> attribute will affect the same attributes of a product, the affiliated <code>product</code> will
 also be edited. In the end, the <code>filteredTransactionList</code> of the system will be updated so that the user can view the change
-accordingly.</p>
+accordingly. Three commands are implemented corresponding to these 3 operations in the logic module:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddTransactionCommand</code>&#8201;&#8212;&#8201;Adds a transaction into the system and update the the quantity and sales attribute
+of the corresponding product.</p>
+</li>
+<li>
+<p><code>EditTransactionCommand</code>&#8201;&#8212;&#8201;Edit detials of a transaction. If <code>quantity</code> is changed, edit the affected product
+as well.</p>
+</li>
+<li>
+<p><code>DeleteTransactionCommand</code>&#8201;&#8212;&#8201;Delete a transaction from the system and edit the affiliated product.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For each command, a parser is implemented to parse the input into arguments.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddTransactionCommmandParser</code>&#8201;&#8212;&#8201;Parse the add transaction input and generates <code>AddTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>EditTransactionCommandParser</code>&#8201;&#8212;&#8201;Parse the edit transaction input and generates <code>EditTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>DeleteTransactionCommandParser</code> --Parse the delete transaction input and generates <code>DeleteTransactionCommand</code>.<br></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how each operation works.</p>
 </div>
+<div class="paragraph">
+<p>AddTransaction Operation:</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddTransactionSequenceDiagram.png" alt="AddTransactionSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The AddTransactionCommmandParser returns a transactionFacotry with <code>productIndex</code> and <code>customerIndex</code>, while a
+transaction is only generated in AddTransactionCommand.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-product-customer-in-transaction"><a class="link" href="#aspect-how-to-store-product-customer-in-transaction">Aspect: How to store product &amp; customer in transaction.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store the product/ customer instance as an attribute.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to construct a transaction and display product/ customer name.</p>
+</li>
+<li>
+<p>Cons: Easy to generate bugs while any of the instance is editted.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store an unique id and name of the product/ customer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not need to update transaction while product is editted.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-change-the-quantity-sales-attribute-of-product-while-edtting-transactions"><a class="link" href="#aspect-how-to-change-the-quantity-sales-attribute-of-product-while-edtting-transactions">Aspect: How to change the quantity &amp; sales attribute of product while edtting transactions.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> If quantity/ product is changed,
+re-store the quantity &amp; sales of the original product, check validation
+(whether the product has that much inventory as required on transaction), and then
+and update the quantity &amp; sales of the new product.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Likely to generate bugs when the new quantity exceeds inventory, i.e. the edit operation is not valid.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> If quantity/ product is changed, check validation first,
+re-store the quantity &amp; sales of the original product, and then
+and update the quantity &amp; sales of the new product.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Straightforward logic, not likely to create bugs.</p>
+</li>
+<li>
+<p>Cons: Validation checking would be very complex.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1591,4 +1709,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 16:02:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 00:59:42 UTC</div></div></div></body></html>
