@@ -34,7 +34,7 @@
 <li><a href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></li>
 <li><a href="#viewing-the-top-selling-and-worst-selling-product">3.20. Viewing the top-selling and worst-selling product.</a></li>
 <li><a href="#viewing-the-revenue-trend-in-a-certain-period-code-revenue-code">3.21. Viewing the revenue trend in a certain period : <code>revenue</code></a></li>
-<li><a href="#setting-the-low-inventory-threshold-code-lowinv-code">3.22. Setting the low-inventory threshold : <code>lowinv</code></a></li>
+<li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.22. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
 <li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.23. Receiving notification while a certain product is running low.</a></li>
 <li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.24. Predicting the sales for the next month : <code>predict</code>.</a></li>
 <li><a href="#exiting-from-the-program-code-exit-code">3.25. Exiting from the program : <code>exit</code></a></li>
@@ -232,7 +232,7 @@ Edits the name of the 2nd customer to be Betsy Crower and clears all existing ta
 <h3 id="locating-customers-by-name-code-findc-code"><a class="link" href="#locating-customers-by-name-code-findc-code">3.5. Locating customers by name: <code>findc</code></a></h3>
 <div class="paragraph">
 <p>Finds customers whose names contain any of the given keywords, and whose attributes match the given attributes.<br>
-Format: <code>findc [n/ NAME] [p/ PHONE] [e/ EMAIL] [a/ ADDRESS]</code></p>
+Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -786,9 +786,6 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <li>
 <p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
 </li>
-<li>
-<p>The default period is the last month.</p>
-</li>
 </ul>
 </div>
 </div>
@@ -799,17 +796,17 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>revenue</code><br>
-Returns the revenue in line graph for the last month.</p>
+<p><code>revenue sd/2020-01-01 ed/2020-12-31</code><br>
+Returns the revenue from Jan 1 to Dec 31</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-the-low-inventory-threshold-code-lowinv-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowinv-code">3.22. Setting the low-inventory threshold : <code>lowinv</code></a></h3>
+<h3 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.22. Setting the low-inventory threshold : <code>lowlimit</code></a></h3>
 <div class="paragraph">
 <p>Sets the notification threshold.
-Format: <code>lowinv [p/PRODUCT_ID] t/THRESHOLD</code></p>
+Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -819,7 +816,10 @@ Format: <code>lowinv [p/PRODUCT_ID] t/THRESHOLD</code></p>
 <p><code>THRESHOLD</code> must be non-negative integers, i.e. 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>If the product id is not specified, the threshold applies to all products.</p>
+<p><code>PRODUCT_ID</code> refers to the index number shown in the displayed products list.</p>
+</li>
+<li>
+<p>The index must be a positive integer 1, 2, 3, …​</p>
 </li>
 </ul>
 </div>
@@ -831,7 +831,7 @@ Format: <code>lowinv [p/PRODUCT_ID] t/THRESHOLD</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>lowinv p/001 t/20</code><br>
+<p><code>lowlimit p/1 t/20</code><br>
 Sets the low inventory threshold for product 001 as 20.</p>
 </li>
 </ul>
@@ -858,7 +858,7 @@ This is a passive feature.
 <div class="sect2">
 <h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.24. Predicting the sales for the next month : <code>predict</code>.</a></h3>
 <div class="paragraph">
-<p>Displays a line graph representing the predicted sales for each day in the next month.<br>
+<p>Predict sales for the next month based on sales in the previous three months<br>
 Format: <code>predict</code></p>
 </div>
 </div>
@@ -944,7 +944,7 @@ e.g. <code>addc n/John Doe p/98765432 e/johnd@example.com a/John street, block 1
 e.g. <code>editc 1 p/91234567 e/johndoe@example.com</code></p>
 </li>
 <li>
-<p><strong>Locating customers</strong> : <code>findc [k/KEYWORD] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Locating customers</strong> : <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>findc n/John</code></p>
 </li>
 <li>
@@ -968,7 +968,7 @@ e.g. <code>listp s/quantity o/ASC</code></p>
 e.g. <code>editp 1 pr/1150 q/80</code></p>
 </li>
 <li>
-<p><strong>Finding products</strong> : <code>findp [KEYWORD]</code><br>
+<p><strong>Finding products</strong> : <code>findp KEYWORD</code><br>
 e.g. <code>findp black</code></p>
 </li>
 <li>
@@ -1007,7 +1007,7 @@ e.g. <code>findt 2020-01-03</code><br>
 <p><strong>Viewing the revenue trend in a certain period</strong> : <code>revenue</code></p>
 </li>
 <li>
-<p><strong>Setting the low-inventory threshold</strong> : <code>lowinv [p/PRODUCT_ID] t/THRESHOLD</code><br>
+<p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit [p/PRODUCT_ID] t/THRESHOLD</code><br>
 e.g. <code>lowinv p/001 t/20</code></p>
 </li>
 <li>
@@ -1022,4 +1022,4 @@ e.g. <code>lowinv p/001 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 01:34:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 14:39:38 UTC</div></div></div></body></html>

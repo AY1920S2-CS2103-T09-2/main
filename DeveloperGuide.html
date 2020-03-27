@@ -1037,7 +1037,7 @@ and update the quantity &amp; sales of the new product.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find items by keyword and attribute.</p>
+<p>User requests to find items by keyword and/or attribute.</p>
 </li>
 <li>
 <p>The app displays the search result.</p>
@@ -1053,7 +1053,7 @@ and update the quantity &amp; sales of the new product.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. No item was found with the keyword and attribute entered.</p>
+<p>1a. No item was found with the keyword and/or attribute entered.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1264,7 +1264,10 @@ and update the quantity &amp; sales of the new product.</p>
 <p>The response to any use action should become visible within 5 seconds.</p>
 </li>
 <li>
-<p>The system should be able to have up to 100 <a href="#customer">customers</a>, 100 <a href="#product">products</a> and 100 <a href="#transaction">transactions</a>.</p>
+<p>The system should be able to have up to 1000000 <a href="#customer">customers</a>, 1000000 <a href="#product">products</a> and 1000000 <a href="#transaction">transactions</a>.</p>
+</li>
+<li>
+<p>The product (price, cost, quantity, sales), transaction (quantity, money) fields and quantity threshold should be able to take values up to 1000000.</p>
 </li>
 <li>
 <p>The user interface should be intuitive enough for users who are not IT-savvy.</p>
@@ -1307,6 +1310,22 @@ and update the quantity &amp; sales of the new product.</p>
 <dt class="hdlist1"><a id="inventory"></a> Inventory</dt>
 <dd>
 <p>The products in stock.</p>
+</dd>
+<dt class="hdlist1"><a id="revenue"></a> Revenue</dt>
+<dd>
+<p>The sales of the product, calculated by adding up the transaction amounts of a particular product.</p>
+</dd>
+<dt class="hdlist1"><a id="sales"></a> Sales</dt>
+<dd>
+<p>Used interchangeably with revenue</p>
+</dd>
+<dt class="hdlist1"><a id="price"></a> Price</dt>
+<dd>
+<p>Selling price of the product</p>
+</dd>
+<dt class="hdlist1"><a id="cost"></a> Cost</dt>
+<dd>
+<p>Cost price of the product</p>
 </dd>
 <dt class="hdlist1"><a id="jar"></a> Jar File</dt>
 <dd>
@@ -1462,4 +1481,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 01:34:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 14:39:38 UTC</div></div></div></body></html>
