@@ -33,13 +33,14 @@
 <li><a href="#deleting-a-transaction-code-deletet-code">3.18. Deleting a transaction : <code>deletet</code></a></li>
 <li><a href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></li>
 <li><a href="#viewing-the-top-selling-and-worst-selling-product">3.20. Viewing the top-selling and worst-selling product.</a></li>
-<li><a href="#viewing-the-revenue-trend-in-a-certain-period-code-revenue-code">3.21. Viewing the revenue trend in a certain period : <code>revenue</code></a></li>
-<li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.22. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
-<li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.23. Receiving notification while a certain product is running low.</a></li>
-<li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.24. Predicting the sales for the next month : <code>predict</code>.</a></li>
-<li><a href="#exiting-from-the-program-code-exit-code">3.25. Exiting from the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.26. Saving the data</a></li>
-<li><a href="#reusing-previous-inputs">3.27. Reusing previous inputs</a></li>
+<li><a href="#get-the-revenue-made-in-a-certain-period-code-revenue-code">3.21. Get the revenue made in a certain period : <code>revenue</code></a></li>
+<li><a href="#get-the-profit-made-in-a-certain-period-code-profit-code">3.22. Get the profit made in a certain period : <code>profit</code></a></li>
+<li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.23. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
+<li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.24. Receiving notification while a certain product is running low.</a></li>
+<li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code>.</a></li>
+<li><a href="#exiting-from-the-program-code-exit-code">3.26. Exiting from the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.27. Saving the data</a></li>
+<li><a href="#reusing-previous-inputs">3.28. Reusing previous inputs</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -263,15 +264,15 @@ Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findc n/ John</code><br>
+<p><code>findc n/John</code><br>
 Returns john and John Doe from the customer list.</p>
 </li>
 <li>
-<p><code>findc n/ Betsy Tim John</code><br>
+<p><code>findc n/Betsy Tim John</code><br>
 Returns any customer having names Betsy, Tim, or John in the customer list.</p>
 </li>
 <li>
-<p><code>findc a/ serangoon yishun</code><br>
+<p><code>findc a/serangoon yishun</code><br>
 Returns all customers with address in Serangoon and Yishun.</p>
 </li>
 </ul>
@@ -329,7 +330,7 @@ Format: <code>clearc</code></p>
 <h3 id="adding-a-product-code-addp-code"><a class="link" href="#adding-a-product-code-addp-code">3.8. Adding a product: <code>addp</code></a></h3>
 <div class="paragraph">
 <p>Adds a product to the product list.<br>
-Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY [s/SALES]</code></p>
+Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -338,7 +339,7 @@ Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY [s/SALES]</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A product created without providing values for sales (in SGD) or quantity will be created with 0 sales and quantity as 0.
+A product created without providing values for sales (in SGD) will be created with 0 sales.
 </td>
 </tr>
 </table>
@@ -349,10 +350,10 @@ A product created without providing values for sales (in SGD) or quantity will b
 <div class="ulist">
 <ul>
 <li>
-<p><code>addp d/iphone x pr/1000 q/10</code></p>
+<p><code>addp d/iphone x pr/1000 q/10 cp/300</code></p>
 </li>
 <li>
-<p><code>addp d/camera pr/2000 q/90 s/100</code></p>
+<p><code>addp d/camera pr/2000 q/90 s/100 cp/1000</code></p>
 </li>
 </ul>
 </div>
@@ -366,47 +367,14 @@ A product created without providing values for sales (in SGD) or quantity will b
 </div>
 <div class="paragraph">
 <p>Shows a list of all products in the product list. It could be sorted by the amount of sales, inventory left, etc.<br>
-Format: <code>listp [s/SORT_BY:(sales|quantity)] [o/ORDER:(ASC|DES)]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The order field shows up only if the sort field is provided.</p>
-</li>
-<li>
-<p>The sorting order by default will be descending.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listp</code>
-Returns all products in the list unsorted.</p>
-</li>
-<li>
-<p><code>listp s/sales</code>
-Returns all products sorted by the number of sales in descending order.</p>
-</li>
-<li>
-<p><code>listp s/quantity o/ASC</code>
-Returns all products sorted by quantity in ascending order.</p>
-</li>
-</ul>
+Format: <code>listp</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-product-code-editp-code"><a class="link" href="#editing-a-product-code-editp-code">3.10. Editing a product : <code>editp</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing product in the product list.<br>
-Format: <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [s/SALES]</code></p>
+Format: <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [cp/COSTPRICE] [s/SALES]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -541,7 +509,7 @@ Format: <code>clearp</code></p>
 <h3 id="adding-a-transaction-code-addt-code"><a class="link" href="#adding-a-transaction-code-addt-code">3.14. Adding a transaction : <code>addt</code></a></h3>
 <div class="paragraph">
 <p>Adds a specified transaction to the system.<br>
-Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATE_TIME m/MONEY_AMOUNT [d/DESCRIPTION]</code><br></p>
+Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATETIME q/QUANTITY m/MONEY [d/DESCRIPTION]</code><br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -549,12 +517,12 @@ Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATE_TIME m/MONEY_AMOUNT [d/DES
 <div class="ulist">
 <ul>
 <li>
-<p><code>addt p/1 c/10 dt/2020-02-19 19:00 m/20</code><br>
-Adds a transaction with product 1 and customer 10 of 20 dollars at 2020-02-19 19:00.</p>
+<p><code>addt p/1 c/10 dt/2020-02-19 19:00 q/10 m/20</code><br>
+Adds a transaction with product 1 and customer 10 of 20 dollars for 10 products at 2020-02-19 19:00.</p>
 </li>
 <li>
-<p><code>addt p/20 c/2 dt/2020-02-20 10:00 m/30 d/under discount</code><br>
-Adds a transaction with product 20 and customer 2 of 30 dollars at 2020-02-20 10:00.</p>
+<p><code>addt p/20 c/2 dt/2020-02-20 10:00 q/10 m/30 d/under discount</code><br>
+Adds a transaction with product 20 and customer 2 of 30 dollars for 10 products at 2020-02-20 10:00.</p>
 </li>
 </ul>
 </div>
@@ -568,46 +536,14 @@ Adds a transaction with product 20 and customer 2 of 30 dollars at 2020-02-20 10
 </div>
 <div class="paragraph">
 <p>Lists all the transactions.<br>
-Format: <code>listt [s/SORT_BY:(money_amount)] [o/ORDER:(ASC|DES)]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The order field shows up only if the sort field is provided.</p>
-</li>
-<li>
-<p>The transactions can only be sorted by the amount of money.</p>
-</li>
-<li>
-<p>The sorting order by default will be descending.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listt</code><br>
-Returns transactions in an unsorted manner.</p>
-</li>
-<li>
-<p><code>listt s/money_amount</code><br>
-Returns transactions sorted by the amount of money by descending order.</p>
-</li>
-</ul>
+Format: <code>listt</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-transaction-code-editt-code"><a class="link" href="#editing-a-transaction-code-editt-code">3.16. Editing a transaction : <code>editt</code></a></h3>
 <div class="paragraph">
 <p>Edits a transaction in the system.<br>
-Format: <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [m/MONEY_AMOUNT] [d/DESCRIPTION]</code></p>
+Format: <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -642,23 +578,17 @@ Edits the product id and customer id of the 1st transaction to be 101 and 123 re
 <h3 id="locating-transaction-code-findt-code"><a class="link" href="#locating-transaction-code-findt-code">3.17. Locating transaction : <code>findt</code></a></h3>
 <div class="paragraph">
 <p>Finds transactions whose attributes match the given attributes.<br>
-Format: <code>findt [id/ID] [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY_LOW-MONEY_HIGH]</code></p>
+Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Ideally, the user would keep a receipt and find the transaction by id printed on the receipt.</p>
-</li>
-<li>
 <p>The search is case insensitive. e.g blue will match Blue</p>
 </li>
 <li>
 <p>At least one of the option fields must be provided.</p>
-</li>
-<li>
-<p><code>MONEY_LOW</code> must be smaller than <code>MONEY_HIGH</code></p>
 </li>
 <li>
 <p>Transactions matching all attributes will be returned (i.e. AND search).</p>
@@ -673,10 +603,6 @@ Format: <code>findt [id/ID] [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m
 <div class="ulist">
 <ul>
 <li>
-<p><code>findt id/001</code><br>
-Returns the transaction dettails with id 001.</p>
-</li>
-<li>
 <p><code>findt p/iphone</code><br>
 Returns all transactions that involve the product <code>iphone</code>.</p>
 </li>
@@ -689,7 +615,7 @@ Returns all transactions that involve a customer named Bob.</p>
 Returns all transactions made on 7th February 2020.</p>
 </li>
 <li>
-<p><code>findt m/100-400</code><br>
+<p><code>findt m/100</code><br>
 Returns all transactions that have a selling price ranging from 100-400 dollars.</p>
 </li>
 <li>
@@ -733,7 +659,7 @@ Format: <code>deletet INDEX</code></p>
 Deletes the 2nd transaction in the displayed list.</p>
 </li>
 <li>
-<p><code>findt 2020-01-03</code><br>
+<p><code>findt dt/2020-01-03</code><br>
 <code>deletet 1</code><br>
 Deletes the 1st transaction in the results of the find command.</p>
 </li>
@@ -774,9 +700,9 @@ This is a passive feature, which automatically updates on Ui.
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-the-revenue-trend-in-a-certain-period-code-revenue-code"><a class="link" href="#viewing-the-revenue-trend-in-a-certain-period-code-revenue-code">3.21. Viewing the revenue trend in a certain period : <code>revenue</code></a></h3>
+<h3 id="get-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#get-the-revenue-made-in-a-certain-period-code-revenue-code">3.21. Get the revenue made in a certain period : <code>revenue</code></a></h3>
 <div class="paragraph">
-<p>Displays the revenue trend in a selected period.
+<p>Gets the revenue made in a selected period.
 Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 </div>
 <div class="sidebarblock">
@@ -785,6 +711,12 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <ul>
 <li>
 <p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
+</li>
+<li>
+<p>The start date must be after end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
 </li>
 </ul>
 </div>
@@ -797,13 +729,48 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <ul>
 <li>
 <p><code>revenue sd/2020-01-01 ed/2020-12-31</code><br>
-Returns the revenue from Jan 1 to Dec 31</p>
+Returns the revenue from Jan 1 2020 to Dec 31 2020</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.22. Setting the low-inventory threshold : <code>lowlimit</code></a></h3>
+<h3 id="get-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#get-the-profit-made-in-a-certain-period-code-profit-code">3.22. Get the profit made in a certain period : <code>profit</code></a></h3>
+<div class="paragraph">
+<p>Gets the profit made in a selected period.
+Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
+</li>
+<li>
+<p>The start date must be after end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>profit sd/2020-01-01 ed/2020-12-31</code><br>
+Returns the profit from Jan 1 2020 to Dec 31 2020</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.23. Setting the low-inventory threshold : <code>lowlimit</code></a></h3>
 <div class="paragraph">
 <p>Sets the notification threshold.
 Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
@@ -832,15 +799,15 @@ Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
 <ul>
 <li>
 <p><code>lowlimit p/1 t/20</code><br>
-Sets the low inventory threshold for product 001 as 20.</p>
+Sets the low inventory threshold for product 1 as 20.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="receiving-notification-while-a-certain-product-is-running-low"><a class="link" href="#receiving-notification-while-a-certain-product-is-running-low">3.23. Receiving notification while a certain product is running low.</a></h3>
+<h3 id="receiving-notification-while-a-certain-product-is-running-low"><a class="link" href="#receiving-notification-while-a-certain-product-is-running-low">3.24. Receiving notification while a certain product is running low.</a></h3>
 <div class="paragraph">
-<p>Pops up notification upon launching the application if any product’s stock is running low.<br></p>
+<p>Pops up notification if quantity of product is below threshold.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -856,21 +823,21 @@ This is a passive feature.
 </div>
 </div>
 <div class="sect2">
-<h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.24. Predicting the sales for the next month : <code>predict</code>.</a></h3>
+<h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code>.</a></h3>
 <div class="paragraph">
 <p>Predict sales for the next month based on sales in the previous three months<br>
 Format: <code>predict</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.25. Exiting from the program : <code>exit</code></a></h3>
+<h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.26. Exiting from the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exit from the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.26. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.27. Saving the data</a></h3>
 <div class="paragraph">
 <p>The application data is saved in the hard disk automatically after any command that changes the data.<br></p>
 </div>
@@ -887,7 +854,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.27. Reusing previous inputs</a></h3>
+<h3 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.28. Reusing previous inputs</a></h3>
 <div class="paragraph">
 <p>The application keeps the history of previous inputs automatically that was keyed in the command line.</p>
 </div>
@@ -960,11 +927,11 @@ e.g. <code>findc n/Betsy</code><br>
 e.g. <code>addp d/iphone x pr/1000 q/10</code></p>
 </li>
 <li>
-<p><strong>Listing all products</strong> : <code>listp [s/SORT_BY:(sales|quantity)] [o/ORDER:(ASC|DES)]</code><br>
-e.g. <code>listp s/quantity o/ASC</code></p>
+<p><strong>Listing all products</strong> : <code>listp</code><br>
+e.g. <code>listp</code></p>
 </li>
 <li>
-<p><strong>Editing a product</strong> : <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [s/SALES]</code><br>
+<p><strong>Editing a product</strong> : <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [cp/COSTPRICE] [q/QUANTITY] [s/SALES]</code><br>
 e.g. <code>editp 1 pr/1150 q/80</code></p>
 </li>
 <li>
@@ -980,23 +947,23 @@ e.g. <code>listp</code><br>
 <p><strong>Clearing all entries</strong> : <code>clearp</code></p>
 </li>
 <li>
-<p><strong>Adding a transaction</strong> : <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATE_TIME m/MONEY_AMOUNT [d/DESCRIPTION]</code><br>
-e.g. <code>addt p/20 c/2 dt/2020-02-20 10:00 m/30 d/under discount</code></p>
+<p><strong>Adding a transaction</strong> : <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATE_TIME m/MONEY q/QUANTITY [d/DESCRIPTION]</code><br>
+e.g. <code>addt p/20 c/2 dt/2020-02-20 10:00 m/30 q/10 d/under discount</code></p>
 </li>
 <li>
-<p><strong>Listing all transaction</strong> : <code>listt [s/SORT_BY:(money_amount)] [o/ORDER:(ASC|DES)]</code><br>
-e.g. <code>listt s/money_amount</code></p>
+<p><strong>Listing all transaction</strong> : <code>listt</code><br>
+e.g. <code>listt</code></p>
 </li>
 <li>
-<p><strong>Editing a transaction</strong> : <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [m/MONEY_AMOUNT] [d/DESCRIPTION]</code><br>
+<p><strong>Editing a transaction</strong> : <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code><br>
 e.g. <code>editt 1 p/101 c/123</code></p>
 </li>
 <li>
-<p><strong>Locating transaction</strong> : <code>findt [id/ID] [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY_LOW-MONEY_HIGH]</code><br>
+<p><strong>Locating transaction</strong> : <code>findt [id/ID] [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]</code><br>
 e.g. <code>findt c/bob dt/2020-02-07</code></p>
 </li>
 <li>
-<p><strong>Deleting a transaction</strong> : <code>delete INDEX</code><br>
+<p><strong>Deleting a transaction</strong> : <code>deletet INDEX</code><br>
 e.g. <code>findt 2020-01-03</code><br>
 <code>deletet 1</code></p>
 </li>
@@ -1004,11 +971,14 @@ e.g. <code>findt 2020-01-03</code><br>
 <p><strong>Clearing all transactions</strong> : <code>cleart</code></p>
 </li>
 <li>
-<p><strong>Viewing the revenue trend in a certain period</strong> : <code>revenue</code></p>
+<p><strong>Get the revenue made in a certain period</strong> : <code>revenue sd/START_DATE ed/END_DATE</code></p>
+</li>
+<li>
+<p><strong>Get the profit made in a certain period</strong> : <code>profit sd/START_DATE ed/END_DATE</code></p>
 </li>
 <li>
 <p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit [p/PRODUCT_ID] t/THRESHOLD</code><br>
-e.g. <code>lowinv p/001 t/20</code></p>
+e.g. <code>lowlimit p/1 t/20</code></p>
 </li>
 <li>
 <p><strong>Predicting the sales for the next month</strong> : <code>predict</code></p>
@@ -1022,4 +992,4 @@ e.g. <code>lowinv p/001 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-28 02:34:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-28 13:00:14 UTC</div></div></div></body></html>
