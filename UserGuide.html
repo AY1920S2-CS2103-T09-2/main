@@ -28,7 +28,7 @@
 <li><a href="#clearing-all-entries-code-clearp-code">3.13. Clearing all entries : <code>clearp</code></a></li>
 <li><a href="#adding-a-transaction-code-addt-code">3.14. Adding a transaction : <code>addt</code></a></li>
 <li><a href="#listing-all-transaction-code-listt-code">3.15. Listing all transaction : <code>listt</code></a></li>
-<li><a href="#editing-a-transaction-code-editt-code-to-be-edited">3.16. Editing a transaction : <code>editt</code> (to be edited)</a></li>
+<li><a href="#editing-a-transaction-code-editt-code">3.16. Editing a transaction : <code>editt</code></a></li>
 <li><a href="#locating-transaction-code-findt-code">3.17. Locating transaction : <code>findt</code></a></li>
 <li><a href="#deleting-a-transaction-code-deletet-code">3.18. Deleting a transaction : <code>deletet</code></a></li>
 <li><a href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></li>
@@ -37,7 +37,7 @@
 <li><a href="#get-the-profit-made-in-a-certain-period-code-profit-code">3.22. Get the profit made in a certain period : <code>profit</code></a></li>
 <li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.23. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
 <li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.24. Receiving notification while a certain product is running low.</a></li>
-<li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code>.</a></li>
+<li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code></a></li>
 <li><a href="#plotting-sales-code-plotsales-code">3.26. Plotting sales: <code>plotsales</code>.</a></li>
 <li><a href="#exiting-from-the-program-code-exit-code">3.27. Exiting from the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.28. Saving the data</a></li>
@@ -315,6 +315,18 @@ Format: <code>deletec INDEX</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deletes transactions that are associated with this particular customer as well.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -346,7 +358,8 @@ Format: <code>clearc</code></p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Permanently deletes all the stored customer data in the application.
+Permanently deletes all the stored customer data in the application.<br>
+Deletes all transactions as well.
 </td>
 </tr>
 </table>
@@ -365,7 +378,8 @@ Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A product created without providing values for sales (in SGD) will be created with 0 sales.
+A product created without providing values for sales (in SGD) will be created with 0 sales.<br>
+The default threshold value is 20% of quantity of product.
 </td>
 </tr>
 </table>
@@ -566,7 +580,8 @@ Format: <code>clearp</code></p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Permanently deletes all the stored product data in the application.
+Permanently deletes all the stored product data in the application.<br>
+Deletes all transactions as well.
 </td>
 </tr>
 </table>
@@ -623,7 +638,7 @@ Format: <code>listt</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-transaction-code-editt-code-to-be-edited"><a class="link" href="#editing-a-transaction-code-editt-code-to-be-edited">3.16. Editing a transaction : <code>editt</code> (to be edited)</a></h3>
+<h3 id="editing-a-transaction-code-editt-code"><a class="link" href="#editing-a-transaction-code-editt-code">3.16. Editing a transaction : <code>editt</code></a></h3>
 <div class="paragraph">
 <p>Edits a transaction in the system.<br>
 Format: <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code></p>
@@ -699,16 +714,16 @@ Returns all transactions that involve the product <code>iphone</code>.</p>
 Returns all transactions that involve a customer named Bob.</p>
 </li>
 <li>
-<p><code>findt dt/2020-02-07</code><br>
-Returns all transactions made on 7th February 2020.</p>
+<p><code>findt dt/2020-02-07 16:00</code><br>
+Returns all transactions made on 7th February 2020 4pm.</p>
 </li>
 <li>
 <p><code>findt m/100</code><br>
-Returns all transactions that have a selling price ranging from 100-400 dollars.</p>
+Returns all transactions that have a selling price of 100 dollars.</p>
 </li>
 <li>
-<p><code>findt c/bob dt/2020-02-07</code><br>
-Returns all transactions that Bob made on the 7th February 2020.</p>
+<p><code>findt c/bob dt/2020-02-07 16:00</code><br>
+Returns all transactions that Bob made on the 7th February 2020 4pm.</p>
 </li>
 </ul>
 </div>
@@ -747,7 +762,7 @@ Format: <code>deletet INDEX</code></p>
 Deletes the 2nd transaction in the displayed list.</p>
 </li>
 <li>
-<p><code>findt dt/2020-01-03</code><br>
+<p><code>findt dt/2020-01-03 16:00</code><br>
 <code>deletet 1</code><br>
 Deletes the 1st transaction in the results of the find command.</p>
 </li>
@@ -811,7 +826,7 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
 </li>
 <li>
-<p>The start date must be after end date</p>
+<p>The start date must be after or equal to end date</p>
 </li>
 <li>
 <p>At least one product must be present</p>
@@ -846,7 +861,7 @@ Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
 <p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
 </li>
 <li>
-<p>The start date must be after end date</p>
+<p>The start date must be after or equal to end date</p>
 </li>
 <li>
 <p>At least one product must be present</p>
@@ -897,7 +912,7 @@ Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The threshold represents 20% of the desired quantity.
+The default threshold represents 20% of the desired quantity.
 </td>
 </tr>
 </table>
@@ -939,10 +954,21 @@ This is a passive feature.
 </div>
 </div>
 <div class="sect2">
-<h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code>.</a></h3>
+<h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code></a></h3>
 <div class="paragraph">
 <p>Predict sales for the next month based on sales in the previous three months<br>
 Format: <code>predict</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The average of the profits made in the past three months is the predicted sales for next month.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1053,7 +1079,7 @@ This is a passive feature. The bar indicator beside the products' name represent
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Inventory System folder.</p>
 </div>
 </div>
 </div>
@@ -1140,7 +1166,7 @@ e.g. <code>findt 2020-01-03</code><br>
 <p><strong>Get the profit made in a certain period</strong> : <code>profit sd/START_DATE ed/END_DATE</code></p>
 </li>
 <li>
-<p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit [p/PRODUCT_ID] t/THRESHOLD</code><br>
+<p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code><br>
 e.g. <code>lowlimit p/1 t/20</code></p>
 </li>
 <li>
@@ -1155,4 +1181,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 01:24:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 04:17:21 UTC</div></div></div></body></html>
