@@ -38,10 +38,11 @@
 <li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.23. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
 <li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.24. Receiving notification while a certain product is running low.</a></li>
 <li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.25. Predicting the sales for the next month : <code>predict</code>.</a></li>
-<li><a href="#exiting-from-the-program-code-exit-code">3.26. Exiting from the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.27. Saving the data</a></li>
-<li><a href="#reusing-previous-inputs">3.28. Reusing previous inputs</a></li>
-<li><a href="#keeping-track-of-products-that-are-running-low-on-stock">3.29. Keeping track of products that are running low on stock</a></li>
+<li><a href="#plotting-sales-code-plotsales-code">3.26. Plotting sales: <code>plotsales</code>.</a></li>
+<li><a href="#exiting-from-the-program-code-exit-code">3.27. Exiting from the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.28. Saving the data</a></li>
+<li><a href="#reusing-previous-inputs">3.29. Reusing previous inputs</a></li>
+<li><a href="#keeping-track-of-products-that-are-running-low-on-stock">3.30. Keeping track of products that are running low on stock</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -140,6 +141,18 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>F1</code> key for quick access to launch help window.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-customer-code-addc-code"><a class="link" href="#adding-a-customer-code-addc-code">3.2. Adding a customer: <code>addc</code></a></h3>
@@ -147,14 +160,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Adds a customer to the customer list<br>
 Format: <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A customer can have any number of tags (including 0)
+A customer can have any number of tags (including 0).
 </td>
 </tr>
 </table>
@@ -175,11 +188,6 @@ A customer can have any number of tags (including 0)
 </div>
 <div class="sect2">
 <h3 id="listing-all-customers-code-listc-code"><a class="link" href="#listing-all-customers-code-listc-code">3.3. Listing all customers: <code>listc</code></a></h3>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ListAllCustomers.png" alt="ListAllCustomers" width="790">
-</div>
-</div>
 <div class="paragraph">
 <p>Shows a list of all customers in the customer list.<br>
 Format: <code>listc</code></p>
@@ -362,6 +370,11 @@ A product created without providing values for sales (in SGD) will be created wi
 </tr>
 </table>
 </div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/AddProduct.png" alt="AddProduct" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -378,20 +391,15 @@ A product created without providing values for sales (in SGD) will be created wi
 </div>
 <div class="sect2">
 <h3 id="listing-all-products-code-listp-code"><a class="link" href="#listing-all-products-code-listp-code">3.9. Listing all products : <code>listp</code></a></h3>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
-</div>
-</div>
 <div class="paragraph">
 <p>Show all products in the product list.<br>
 Format: <code>listp</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The product is automatically sorted by the product quantity, represented by the bar indicator beside the product name.
@@ -586,6 +594,11 @@ Only need to enter if user want to add notes to the transaction.
 </tr>
 </table>
 </div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/AddTransaction.png" alt="AddTransaction" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -604,11 +617,6 @@ Adds a transaction with 20th product and 2nd customer of $30 for 10 products at 
 </div>
 <div class="sect2">
 <h3 id="listing-all-transaction-code-listt-code"><a class="link" href="#listing-all-transaction-code-listt-code">3.15. Listing all transaction : <code>listt</code></a></h3>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ListTransactions.png" alt="ListTransactions" width="790">
-</div>
-</div>
 <div class="paragraph">
 <p>Lists all the transactions.<br>
 Format: <code>listt</code></p>
@@ -674,7 +682,7 @@ Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]<
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/FindTransaction.png" alt="FindTransaction" width="790">
+<img src="images/FindTransactionByProduct.png" alt="FindTransactionByProduct" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -777,17 +785,15 @@ Permanently deletes all the stored transaction data in the application.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This is a passive feature, which automatically updates on Ui.
+This is a passive feature. Relaunch the window to get the updated information.
+<code>F2</code> key for quick access to launch/relaunch the window.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/Statistics.png" alt="Statistics">
+<img src="images/TopSellingProducts.png" alt="TopSellingProducts">
 </div>
 </div>
 </div>
@@ -940,14 +946,26 @@ Format: <code>predict</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.26. Exiting from the program : <code>exit</code></a></h3>
+<h3 id="plotting-sales-code-plotsales-code"><a class="link" href="#plotting-sales-code-plotsales-code">3.26. Plotting sales: <code>plotsales</code>.</a></h3>
+<div class="paragraph">
+<p>Plot a graph with the sales of the selected product in the past week.<br>
+Format: <code>plotsales PRODUCT_INDEX</code></p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SalesPlot.png" alt="SalesPlot">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.27. Exiting from the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exit from the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.27. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
 <p>The application data is saved in the hard disk automatically after any command that changes the data.<br></p>
 </div>
@@ -964,7 +982,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.28. Reusing previous inputs</a></h3>
+<h3 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.29. Reusing previous inputs</a></h3>
 <div class="paragraph">
 <p>The application keeps the history of previous inputs that was keyed in the command line.</p>
 </div>
@@ -1002,7 +1020,7 @@ The history is deleted after application closes.
 </div>
 </div>
 <div class="sect2">
-<h3 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">3.29. Keeping track of products that are running low on stock</a></h3>
+<h3 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">3.30. Keeping track of products that are running low on stock</a></h3>
 <div class="paragraph">
 <p>The product list updates and sort by products that are running low on stock automatically.</p>
 </div>
@@ -1013,10 +1031,15 @@ The history is deleted after application closes.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This is a passive feature.
+This is a passive feature. The bar indicator beside the products' name represents visualises the remaining balance.
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/TrackProductBalance.png" alt="TrackProductBalance" width="790">
+</div>
 </div>
 </div>
 </div>
@@ -1132,4 +1155,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 07:25:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 01:24:29 UTC</div></div></div></body></html>
