@@ -32,10 +32,10 @@
 <li><a href="#locating-transaction-code-findt-code">3.17. Locating transaction : <code>findt</code></a></li>
 <li><a href="#undo-a-transaction-code-undot-code">3.18. Undo a transaction : <code>undot</code></a></li>
 <li><a href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></li>
-<li><a href="#viewing-the-top-selling-and-worst-selling-product">3.20. Viewing the top-selling and worst-selling product.</a></li>
-<li><a href="#view-the-product-sales-and-quantity-histogram">3.21. View the product sales and quantity histogram.</a></li>
-<li><a href="#get-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Get the revenue made in a certain period : <code>revenue</code></a></li>
-<li><a href="#get-the-profit-made-in-a-certain-period-code-profit-code">3.23. Get the profit made in a certain period : <code>profit</code></a></li>
+<li><a href="#viewing-the-top-selling-and-worst-selling-products">3.20. Viewing the top-selling and worst-selling products.</a></li>
+<li><a href="#viewing-the-product-sales-and-quantity-histogram">3.21. Viewing the product sales and quantity histogram.</a></li>
+<li><a href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Getting the revenue made in a certain period : <code>revenue</code></a></li>
+<li><a href="#getting-the-profit-made-in-a-certain-period-code-profit-code">3.23. Getting the profit made in a certain period : <code>profit</code></a></li>
 <li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.24. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
 <li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.25. Receiving notification while a certain product is running low.</a></li>
 <li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.26. Predicting the sales for the next month : <code>predict</code></a></li>
@@ -71,7 +71,7 @@
 <p>Download the latest <code>iTrackPro.jar</code> <a href="https://github.com/AY1920S2-CS2103-T09-2/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your Inventory System.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -601,11 +601,11 @@ Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY]
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The date time field [dt/] is optional, will be recorded as current local machine time if left empty.<br>
-The money field [m/] is optional, will be recorded as product price multiplied by quantity if left empty.
+The date time field [dt/] is optional, and will be recorded as current local machine time if left empty.<br>
+The money field [m/] is optional, and will be recorded as product price multiplied by quantity if left empty.
 Only need to enter if necessary (i.e. discounts on products).<br>
 The description field [d/] is optional, will be recorded as Null if left empty.
-Only need to enter if user want to add notes to the transaction.
+Only need to enter if user wants to add notes to the transaction.
 </td>
 </tr>
 </table>
@@ -622,11 +622,11 @@ Only need to enter if user want to add notes to the transaction.
 <ul>
 <li>
 <p><code>addt p/1 c/10 dt/2020-02-19 19:00 q/10 m/20</code><br>
-Adds a transaction with the 1st product and the 10th customer of $20 for 10 products at 2020-02-19 19:00.</p>
+Adds a transaction, where the 10th customer bought 10 of the 1st product for $20 at 2020-02-19 19:00.</p>
 </li>
 <li>
 <p><code>addt p/20 c/2 dt/2020-02-20 10:00 q/10 m/30 d/under discount</code><br>
-Adds a transaction with 20th product and 2nd customer of $30 for 10 products at 2020-02-20 10:00 at an discount.</p>
+Adds a transaction, where the 2nd customer bought 10 of the 20th product for $30 at 2020-02-20 10:00 at an discount.</p>
 </li>
 </ul>
 </div>
@@ -754,6 +754,18 @@ Format: <code>undot INDEX</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adds the quantity in the transaction back to the product and reduces the sales of the product by transaction amount.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -792,9 +804,9 @@ Permanently deletes all the stored transaction data in the application.
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-the-top-selling-and-worst-selling-product"><a class="link" href="#viewing-the-top-selling-and-worst-selling-product">3.20. Viewing the top-selling and worst-selling product.</a></h3>
+<h3 id="viewing-the-top-selling-and-worst-selling-products"><a class="link" href="#viewing-the-top-selling-and-worst-selling-products">3.20. Viewing the top-selling and worst-selling products.</a></h3>
 <div class="paragraph">
-<p>Displays and updates the top-selling and worst-selling product as transactions are made.<br></p>
+<p>Displays and updates the top-selling and worst-selling products (sorted by profit) as transactions are made.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -816,9 +828,12 @@ This is a passive feature. Relaunch the window to get the updated information.
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-the-product-sales-and-quantity-histogram"><a class="link" href="#view-the-product-sales-and-quantity-histogram">3.21. View the product sales and quantity histogram.</a></h3>
+<h3 id="viewing-the-product-sales-and-quantity-histogram"><a class="link" href="#viewing-the-product-sales-and-quantity-histogram">3.21. Viewing the product sales and quantity histogram.</a></h3>
 <div class="paragraph">
-<p>Displays and updates the histogram of product sales and quantity.<br></p>
+<p>Displays and updates the histogram of product sales and quantity.<br>
+Plots 2 graphs:<br>
+1. Number of products against quantity of products<br>
+2. Number of products against sales of products</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -840,7 +855,7 @@ This is a passive feature. Relaunch the histogram window to udpate the plot.
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#get-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Get the revenue made in a certain period : <code>revenue</code></a></h3>
+<h3 id="getting-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Getting the revenue made in a certain period : <code>revenue</code></a></h3>
 <div class="paragraph">
 <p>Gets the revenue made in a selected period.<br>
 Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -875,7 +890,7 @@ Returns the revenue from Jan 1 2020 to Dec 31 2020</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#get-the-profit-made-in-a-certain-period-code-profit-code">3.23. Get the profit made in a certain period : <code>profit</code></a></h3>
+<h3 id="getting-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#getting-the-profit-made-in-a-certain-period-code-profit-code">3.23. Getting the profit made in a certain period : <code>profit</code></a></h3>
 <div class="paragraph">
 <p>Gets the profit made in a selected period.<br>
 Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -912,7 +927,7 @@ Returns the profit from Jan 1 2020 to Dec 31 2020</p>
 <div class="sect2">
 <h3 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.24. Setting the low-inventory threshold : <code>lowlimit</code></a></h3>
 <div class="paragraph">
-<p>Sets the notification threshold for individual product &amp; updates the bar indicator of the product.<br>
+<p>Sets the notification threshold for individual product and updates the bar indicator of the product.<br>
 Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
 </div>
 <div class="sidebarblock">
@@ -1088,7 +1103,7 @@ The history is deleted after application closes.
 <div class="sect2">
 <h3 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">3.31. Keeping track of products that are running low on stock</a></h3>
 <div class="paragraph">
-<p>The product list updates and sort by products that are running low on stock automatically.</p>
+<p>The product list updates and sort by product quantity automatically.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1213,6 +1228,9 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 <p><strong>Predicting the sales for the next month</strong> : <code>predict</code></p>
 </li>
 <li>
+<p><strong>Plotting sales</strong> : <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
+</li>
+<li>
 <p><strong>Exiting from the program</strong> : <code>exit</code></p>
 </li>
 <li>
@@ -1221,4 +1239,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:33:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 15:55:59 UTC</div></div></div></body></html>
