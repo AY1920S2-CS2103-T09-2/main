@@ -168,7 +168,8 @@ Format: <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A customer can have any number of tags (including 0).
+A customer can have any number of tags (including 0).<br>
+Duplicate customers (with the same name, phone, email) are not allowed.
 </td>
 </tr>
 </table>
@@ -371,6 +372,18 @@ Deletes all transactions as well.
 <div class="paragraph">
 <p>Adds a product to the product list.<br>
 Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate products (with the same description, cost price, price) are not allowed.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -593,6 +606,18 @@ Deletes all transactions as well.
 <div class="paragraph">
 <p>Adds a specified transaction to the system.<br>
 Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY] [d/DESCRIPTION]</code><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate transactions (with the same customer, product, datetime, quantity) are not allowed.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1239,4 +1264,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 00:39:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 01:53:31 UTC</div></div></div></body></html>
