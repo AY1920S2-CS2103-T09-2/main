@@ -243,7 +243,7 @@ Edits the name of the 2nd customer to be Betsy Crower and clears all existing ta
 <div class="sect2">
 <h3 id="locating-customers-by-name-code-findc-code"><a class="link" href="#locating-customers-by-name-code-findc-code">3.5. Locating customers by name: <code>findc</code></a></h3>
 <div class="paragraph">
-<p>Finds customers whose names contain any of the given keywords, and whose attributes match the given attributes.<br>
+<p>Finds customers whose attributes match the given attributes.<br>
 Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -260,10 +260,10 @@ Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 <p>Only full words will be matched for keywords e.g. Han will not match Hans</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. Hans Bo will match Bo Hans</p>
+<p>The order of the attributes does not matter. e.g. Hans Bo will match Bo Hans</p>
 </li>
 <li>
-<p>Customers matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return Hans Gruber, Bo Yang</p>
+<p>Only customers matching all keywords will be returned (i.e. AND search)</p>
 </li>
 </ul>
 </div>
@@ -614,7 +614,7 @@ Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY]
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate transactions (with the same customer, product, datetime, quantity) are not allowed.
+Duplicate transactions (with the same customer, product, datetime) are not allowed.
 </td>
 </tr>
 </table>
@@ -890,10 +890,10 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
 </li>
 <li>
-<p>The start date must be after or equal to end date</p>
+<p>The start date must be before or equal to end date</p>
 </li>
 <li>
 <p>At least one product must be present</p>
@@ -908,8 +908,8 @@ Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>revenue sd/2020-01-01 ed/2020-12-31</code><br>
-Returns the revenue from Jan 1 2020 to Dec 31 2020</p>
+<p><code>revenue sd/2020-01-01 10:00 ed/2020-12-31 10:01</code><br>
+Returns the revenue from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
 </li>
 </ul>
 </div>
@@ -925,10 +925,10 @@ Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The start date and end date must follow a format of <code>yyyy-mm-dd</code></p>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
 </li>
 <li>
-<p>The start date must be after or equal to end date</p>
+<p>The start date must be before or equal to end date</p>
 </li>
 <li>
 <p>At least one product must be present</p>
@@ -943,8 +943,8 @@ Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>profit sd/2020-01-01 ed/2020-12-31</code><br>
-Returns the profit from Jan 1 2020 to Dec 31 2020</p>
+<p><code>profit sd/2020-01-01 10:00 ed/2020-12-31 10:01</code><br>
+Returns the profit from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
 </li>
 </ul>
 </div>
@@ -1023,7 +1023,7 @@ This is a passive feature.
 <div class="sect2">
 <h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.26. Predicting the sales for the next month : <code>predict</code></a></h3>
 <div class="paragraph">
-<p>Predict sales for the next month based on sales in the previous three months<br>
+<p>Predicts sales for the next month based on sales in the previous three months<br>
 Format: <code>predict</code></p>
 </div>
 <div class="sidebarblock">
@@ -1041,8 +1041,25 @@ Format: <code>predict</code></p>
 <div class="sect2">
 <h3 id="plotting-sales-code-plotsales-code"><a class="link" href="#plotting-sales-code-plotsales-code">3.27. Plotting sales: <code>plotsales</code>.</a></h3>
 <div class="paragraph">
-<p>Plot a graph with the sales of the selected product in the past week.<br>
+<p>Plots a graph with the sales of the selected product in a given time period.<br>
 Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
+</li>
+<li>
+<p>The start date must be before or equal to end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1057,6 +1074,21 @@ will plot the last 7 days by default.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plotsales 1 sd/2020-02-20 10:00 ed/2020-02-28 10:01</code><br>
+Plots a graph with the sales of the selected product between 20th Feb 10am and 28th Feb 10:01am in 2020.</p>
+</li>
+<li>
+<p><code>plotsales 1</code><br>
+Plots a graph with the sales of the selected product in the past week.</p>
+</li>
+</ul>
+</div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/SalesPlot.png" alt="SalesPlot">
@@ -1066,7 +1098,7 @@ will plot the last 7 days by default.
 <div class="sect2">
 <h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.28. Exiting from the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exit from the program, closes all opened windows.<br>
+<p>Exits from the program, closes all opened windows.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
@@ -1137,7 +1169,7 @@ The history is deleted after application closes.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This is a passive feature. The bar indicator beside the products' name represents visualises the remaining balance.
+This is a passive feature. The progress bar indicator beside the products' name represents visualises the remaining balance.
 </td>
 </tr>
 </table>
@@ -1264,4 +1296,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 01:53:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 03:11:03 UTC</div></div></div></body></html>
