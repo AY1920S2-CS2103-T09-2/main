@@ -24,8 +24,9 @@
 <ul class="sectlevel2">
 <li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature">3.1. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
 <li><a href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/ Edit/ Delete <a href="#transaction">transactions</a></a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2">3.3. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -149,13 +150,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>deletep 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>deletec 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -173,7 +174,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -207,7 +208,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>InventorySystemParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -224,13 +225,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deletec 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>deletec 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -265,10 +266,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Inventory System data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Customer&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -282,7 +283,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory System</code>, which <code>Customer</code> can reference. This would allow <code>Inventory System</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Customer</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -310,7 +311,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the Inventory System data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -649,14 +650,102 @@ and update the quantity &amp; sales of the new product.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2"><a class="link" href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2">3.3. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></h3>
+<div class="paragraph">
+<p>The manage product mechanism is facilitated by <code>InventorySystemParser</code>.
+First, the InventorySystemParser class parses the user command.
+Then the <code>RevenueCommandParser/ProfitCommandParser</code> parses the user input arguments into Command objects.
+The resulting <code>RevenueCommand/ProfitCommand</code> is executed by the LogicManager.
+The command execution calculates the revenue/profit depending on the command.
+The result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.</p>
+</div>
+<div class="paragraph">
+<p>The following commands are available to be parsed by InventorySystemParser:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RevenueCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Gets the revenue made in a selected period.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProfitCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Gets the profit made in a selected period.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The commands all inherit from superclass <code>Command</code> and require command parsers to parse the user input arguments.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the profit operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ProfitSequenceDiagram.png" alt="ProfitSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The revenue operation works in the same way as the profit operation.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-commands-are-executed-2"><a class="link" href="#aspect-how-commands-are-executed-2">Aspect: How commands are executed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Calculate revenue/profit only when needed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Decreases coupling, easy to test</p>
+</li>
+<li>
+<p>Cons: Need to keep calculating if command is frequently used (increase time complexity especially if transaction list is long)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep track of revenue/profit in a singleton class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to calculate when revenue/profit command is executed (instead, revenue/profit is updated whenever a transaction is added or edited)</p>
+</li>
+<li>
+<p>Cons: Hard to unit test, increase coupling</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -687,7 +776,7 @@ and update the quantity &amp; sales of the new product.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -803,13 +892,13 @@ and update the quantity &amp; sales of the new product.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find <a href="#item">items</a> by keyword and attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find <a href="#item">items</a> by keyword or attributes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">search <a href="#item">items</a> more efficiently</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">receive notifications when the <a href="#product">product</a> quantity is running low, with the <a href="#product">product</a> name and balance left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive notifications when the <a href="#product">product</a> quantity is running low</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">stock up for the particular <a href="#product">product</a></p></td>
 </tr>
 <tr>
@@ -820,39 +909,33 @@ and update the quantity &amp; sales of the new product.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view the top-selling <a href="#product">products</a> and worst-selling <a href="#product">products</a> at one glance (e.g. dashboard that displays name of <a href="#product">products</a>)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view the statistics of each individual <a href="#product">product</a>, such as revenue made and sales volume</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the sales or quantity of each individual <a href="#product">product</a> in graphical format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">so that it is easier to visualise</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see predicted sales for the future months based on past sales</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see predicted sales for the next month based on past sales</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know which <a href="#product">products</a> to stock up on</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view a list of <a href="#product">products</a> sorted by the amount of sales in a selected period (e.g. last week/last month)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view a list of <a href="#product">products</a> sorted by the amount of profits</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view the revenue on a daily/monthly/yearly basis or in a customised period</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytical user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the revenue on a daily/ monthly/ yearly basis or in a customised period</p></td>
 <td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">generate a demographic report on <a href="#customer">customers</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know who to target for marketing strategies</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -874,7 +957,7 @@ and update the quantity &amp; sales of the new product.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>iTrackPro</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>iTrack Pro</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-uc01-delete-an-a-href-item-item-a" class="discrete">Use case:  UC01 - Delete an <a href="#item">item</a></h3>
 <div class="paragraph">
@@ -1124,7 +1207,7 @@ and update the quantity &amp; sales of the new product.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc06-view-statistics-revenue-best-worst-selling-products-and-do-analysis" class="discrete">Use case:  UC06 - View statistics (revenue, best/ worst selling products) and do analysis</h3>
+<h3 id="use-case-uc06-view-statistics-profit-revenue" class="discrete">Use case:  UC06 - View statistics (profit, revenue)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1198,14 +1281,14 @@ and update the quantity &amp; sales of the new product.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc08-configure-low-inventory-notification-settings-products-only" class="discrete">Use case:  UC08 - Configure low inventory notification settings (products only)</h3>
+<h3 id="use-case-uc08-configure-low-inventory-notification-settings-for-products" class="discrete">Use case:  UC08 - Configure low inventory notification settings (for products)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User sets the inventory quantity low limit.</p>
+<p>User sets the quantity threshold for a particular product.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1218,7 +1301,7 @@ and update the quantity &amp; sales of the new product.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The input limit is invalid or out of range.</p>
+<p>1a. The input limit is invalid or out of range or the product index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1249,7 +1332,7 @@ and update the quantity &amp; sales of the new product.</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>The system should work on Windows, Linux or Mac operating systems.</p>
+<p>The system should work on Windows, Linux or Mac operating aystems.</p>
 </li>
 <li>
 <p>The system should be usable by a novice who has never used an inventory management system.</p>
@@ -1267,7 +1350,25 @@ and update the quantity &amp; sales of the new product.</p>
 <p>The system should be able to have up to 1000000 <a href="#customer">customers</a>, 1000000 <a href="#product">products</a> and 1000000 <a href="#transaction">transactions</a>.</p>
 </li>
 <li>
-<p>The product (price, cost, quantity, sales), transaction (quantity, money) fields and quantity threshold should be able to take values up to 1000000.</p>
+<p>The product (price, cost price, quantity, sales), transaction (quantity, money) fields and quantity threshold should be able to take integers up to 1000000.</p>
+</li>
+<li>
+<p>The price and cost price should be at least $1.</p>
+</li>
+<li>
+<p>The customer&#8217;s address field should take up to 45 characters.</p>
+</li>
+<li>
+<p>The customer&#8217;s name field should take up to 30 characters.</p>
+</li>
+<li>
+<p>The customer&#8217;s phone field should be between 3 to 15 characters long and contain only integers.</p>
+</li>
+<li>
+<p>The customer&#8217;s email field should take up to 40 characters and should be a valid email format.</p>
+</li>
+<li>
+<p>A customer can have up to 5 tags where each tag is up to 15 characters long.</p>
 </li>
 <li>
 <p>The user interface should be intuitive enough for users who are not IT-savvy.</p>
@@ -1315,6 +1416,10 @@ and update the quantity &amp; sales of the new product.</p>
 <dd>
 <p>The sales of the product, calculated by adding up the transaction amounts of a particular product.</p>
 </dd>
+<dt class="hdlist1"><a id="revenue"></a> Profit</dt>
+<dd>
+<p>The money gained from the sale of the product minus cost of product, calculated by revenue - total cost.</p>
+</dd>
 <dt class="hdlist1"><a id="sales"></a> Sales</dt>
 <dd>
 <p>Used interchangeably with revenue</p>
@@ -1323,9 +1428,9 @@ and update the quantity &amp; sales of the new product.</p>
 <dd>
 <p>Selling price of the product</p>
 </dd>
-<dt class="hdlist1"><a id="cost"></a> Cost</dt>
+<dt class="hdlist1"><a id="cost"></a> Cost price</dt>
 <dd>
-<p>Cost price of the product</p>
+<p>Price of making/ buying the product to sell</p>
 </dd>
 <dt class="hdlist1"><a id="jar"></a> Jar File</dt>
 <dd>
@@ -1437,18 +1542,18 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all customers using the <code>list</code> command. Multiple customers in the list.</p>
+<p>Prerequisites: List all customers using the <code>listc</code> command. Multiple customers in the list.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
+<p>Test case: <code>deletec 1</code><br>
 Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
+<p>Test case: <code>deletec 0</code><br>
 Expected: No customer is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>deletec</code>, <code>deletec x</code> (where x is larger than the list size) <em>{give more}</em><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -1481,4 +1586,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 05:34:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 05:37:00 UTC</div></div></div></body></html>

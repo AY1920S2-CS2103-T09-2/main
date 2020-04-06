@@ -13,37 +13,11 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-customer-code-addc-code">3.2. Adding a customer: <code>addc</code></a></li>
-<li><a href="#listing-all-customers-code-listc-code">3.3. Listing all customers: <code>listc</code></a></li>
-<li><a href="#editing-a-customer-code-editc-code">3.4. Editing a customer: <code>editc</code></a></li>
-<li><a href="#locating-customers-by-name-code-findc-code">3.5. Locating customers by name: <code>findc</code></a></li>
-<li><a href="#deleting-a-customer-code-deletec-code">3.6. Deleting a customer: <code>deletec</code></a></li>
-<li><a href="#clearing-all-customers-code-clearc-code">3.7. Clearing all customers: <code>clearc</code></a></li>
-<li><a href="#adding-a-product-code-addp-code">3.8. Adding a product: <code>addp</code></a></li>
-<li><a href="#listing-all-products-code-listp-code">3.9. Listing all products : <code>listp</code></a></li>
-<li><a href="#editing-a-product-code-editp-code">3.10. Editing a product : <code>editp</code></a></li>
-<li><a href="#finding-products-code-findp-code">3.11. Finding products : <code>findp</code></a></li>
-<li><a href="#deleting-a-product-code-deletep-code">3.12. Deleting a product : <code>deletep</code></a></li>
-<li><a href="#clearing-all-entries-code-clearp-code">3.13. Clearing all entries : <code>clearp</code></a></li>
-<li><a href="#adding-a-transaction-code-addt-code">3.14. Adding a transaction : <code>addt</code></a></li>
-<li><a href="#listing-all-transaction-code-listt-code">3.15. Listing all transaction : <code>listt</code></a></li>
-<li><a href="#editing-a-transaction-code-editt-code">3.16. Editing a transaction : <code>editt</code></a></li>
-<li><a href="#locating-transaction-code-findt-code">3.17. Locating transaction : <code>findt</code></a></li>
-<li><a href="#undo-a-transaction-code-undot-code">3.18. Undo a transaction : <code>undot</code></a></li>
-<li><a href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></li>
-<li><a href="#viewing-the-top-selling-and-worst-selling-products">3.20. Viewing the top-selling and worst-selling products.</a></li>
-<li><a href="#viewing-the-product-sales-and-quantity-histogram">3.21. Viewing the product sales and quantity histogram.</a></li>
-<li><a href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Getting the revenue made in a certain period : <code>revenue</code></a></li>
-<li><a href="#getting-the-profit-made-in-a-certain-period-code-profit-code">3.23. Getting the profit made in a certain period : <code>profit</code></a></li>
-<li><a href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.24. Setting the low-inventory threshold : <code>lowlimit</code></a></li>
-<li><a href="#receiving-notification-while-a-certain-product-is-running-low">3.25. Receiving notification while a certain product is running low.</a></li>
-<li><a href="#predicting-the-sales-for-the-next-month-code-predict-code">3.26. Predicting the sales for the next month : <code>predict</code></a></li>
-<li><a href="#plotting-sales-code-plotsales-code">3.27. Plotting sales: <code>plotsales</code>.</a></li>
-<li><a href="#exiting-from-the-program-code-exit-code">3.28. Exiting from the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.29. Saving the data</a></li>
-<li><a href="#reusing-previous-inputs">3.30. Reusing previous inputs</a></li>
-<li><a href="#keeping-track-of-products-that-are-running-low-on-stock">3.31. Keeping track of products that are running low on stock</a></li>
+<li><a href="#general">3.1. General</a></li>
+<li><a href="#customer">3.2. Customer</a></li>
+<li><a href="#product">3.3. Product</a></li>
+<li><a href="#transaction">3.4. Transaction</a></li>
+<li><a href="#statistics">3.5. Statistics</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -138,7 +112,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="general"><a class="link" href="#general">3.1. General</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
@@ -155,8 +131,120 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="receiving-notification-while-a-certain-product-is-running-low"><a class="link" href="#receiving-notification-while-a-certain-product-is-running-low">3.1.2. Receiving notification while a certain product is running low.</a></h4>
+<div class="paragraph">
+<p>Pops up notification if quantity of product is below threshold.<br>
+Displays the product name and remaining product quantity.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/PopupNotification.png" alt="PopupNotification">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a passive feature.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.1.3. Exiting from the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits from the program, closes all opened windows.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.1.4. Saving the data</a></h4>
+<div class="paragraph">
+<p>The application data is saved in the hard disk automatically after any command that changes the data.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There is no need to save manually.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.1.5. Reusing previous inputs</a></h4>
+<div class="paragraph">
+<p>The application keeps the history of previous inputs that was keyed in the command line.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Can keep history of up to 100 inputs.<br></p>
+</li>
+<li>
+<p>Up arrow key in command line to navigate up the history of inputs.<br></p>
+</li>
+<li>
+<p>Down arrow key in command line to navigate down the history of inputs.<br></p>
+</li>
+<li>
+<p>Commands are saved into the history automatically.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The history is deleted after application closes.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">3.1.6. Keeping track of products that are running low on stock</a></h4>
+<div class="paragraph">
+<p>The product list updates and sort by product quantity automatically.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a passive feature. The progress bar indicator beside the products' name represents visualises the remaining balance.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/TrackProductBalance.png" alt="TrackProductBalance" width="790">
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="adding-a-customer-code-addc-code"><a class="link" href="#adding-a-customer-code-addc-code">3.2. Adding a customer: <code>addc</code></a></h3>
+<h3 id="customer"><a class="link" href="#customer">3.2. Customer</a></h3>
+<div class="sect3">
+<h4 id="adding-a-customer-code-addc-code"><a class="link" href="#adding-a-customer-code-addc-code">3.2.1. Adding a customer: <code>addc</code></a></h4>
 <div class="paragraph">
 <p>Adds a customer to the customer list<br>
 Format: <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
@@ -169,7 +257,11 @@ Format: <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
 </td>
 <td class="content">
 A customer can have any number of tags (including 0).<br>
-Duplicate customers (with the same name, phone, email) are not allowed.
+Duplicate customers (with the same name, phone, email) are not allowed.<br>
+The address field can take up to 45 characters.<br>
+The name field can take up to 30 characters.<br>
+The phone field can be between 3 to 15 characters long and contain only integers.<br>
+The  email field can take up to 40 characters and should be a valid email format.
 </td>
 </tr>
 </table>
@@ -188,15 +280,15 @@ Duplicate customers (with the same name, phone, email) are not allowed.
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-customers-code-listc-code"><a class="link" href="#listing-all-customers-code-listc-code">3.3. Listing all customers: <code>listc</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-customers-code-listc-code"><a class="link" href="#listing-all-customers-code-listc-code">3.2.2. Listing all customers: <code>listc</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all customers in the customer list.<br>
 Format: <code>listc</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-customer-code-editc-code"><a class="link" href="#editing-a-customer-code-editc-code">3.4. Editing a customer: <code>editc</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-customer-code-editc-code"><a class="link" href="#editing-a-customer-code-editc-code">3.2.3. Editing a customer: <code>editc</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing customer in the customer list.<br>
 Format: <code>editc INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​</code></p>
@@ -240,8 +332,8 @@ Edits the name of the 2nd customer to be Betsy Crower and clears all existing ta
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-customers-by-name-code-findc-code"><a class="link" href="#locating-customers-by-name-code-findc-code">3.5. Locating customers by name: <code>findc</code></a></h3>
+<div class="sect3">
+<h4 id="locating-customers-by-name-code-findc-code"><a class="link" href="#locating-customers-by-name-code-findc-code">3.2.4. Locating customers by name: <code>findc</code></a></h4>
 <div class="paragraph">
 <p>Finds customers whose attributes match the given attributes.<br>
 Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
@@ -294,8 +386,8 @@ Returns all customers with address in Serangoon and Yishun.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-customer-code-deletec-code"><a class="link" href="#deleting-a-customer-code-deletec-code">3.6. Deleting a customer: <code>deletec</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-customer-code-deletec-code"><a class="link" href="#deleting-a-customer-code-deletec-code">3.2.5. Deleting a customer: <code>deletec</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified customer from the customer list that is currently being displayed.<br>
 Format: <code>deletec INDEX</code></p>
@@ -347,8 +439,8 @@ Deletes the 1st customer in the results of the find command.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-customers-code-clearc-code"><a class="link" href="#clearing-all-customers-code-clearc-code">3.7. Clearing all customers: <code>clearc</code></a></h3>
+<div class="sect3">
+<h4 id="clearing-all-customers-code-clearc-code"><a class="link" href="#clearing-all-customers-code-clearc-code">3.2.6. Clearing all customers: <code>clearc</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the customer list.<br>
 Format: <code>clearc</code></p>
@@ -367,8 +459,11 @@ Deletes all transactions as well.
 </table>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="adding-a-product-code-addp-code"><a class="link" href="#adding-a-product-code-addp-code">3.8. Adding a product: <code>addp</code></a></h3>
+<h3 id="product"><a class="link" href="#product">3.3. Product</a></h3>
+<div class="sect3">
+<h4 id="adding-a-product-code-addp-code"><a class="link" href="#adding-a-product-code-addp-code">3.3.1. Adding a product: <code>addp</code></a></h4>
 <div class="paragraph">
 <p>Adds a product to the product list.<br>
 Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</code></p>
@@ -380,7 +475,9 @@ Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</cod
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate products (with the same description, cost price, price) are not allowed.
+Duplicate products (with the same description, cost price, price) are not allowed.<br>
+The price, cost price, quantity and sales can take integers up to 1000000.<br>
+The price and cost price must be at least $1.
 </td>
 </tr>
 </table>
@@ -417,8 +514,8 @@ The default threshold value is 20% of quantity of product.
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-products-code-listp-code"><a class="link" href="#listing-all-products-code-listp-code">3.9. Listing all products : <code>listp</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-products-code-listp-code"><a class="link" href="#listing-all-products-code-listp-code">3.3.2. Listing all products : <code>listp</code></a></h4>
 <div class="paragraph">
 <p>Show all products in the product list.<br>
 Format: <code>listp</code></p>
@@ -436,8 +533,8 @@ The product is automatically sorted by the product quantity, represented by the 
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-product-code-editp-code"><a class="link" href="#editing-a-product-code-editp-code">3.10. Editing a product : <code>editp</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-product-code-editp-code"><a class="link" href="#editing-a-product-code-editp-code">3.3.3. Editing a product : <code>editp</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing product in the displayed product list.<br>
 Format: <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [cp/COSTPRICE] [s/SALES]</code></p>
@@ -475,8 +572,8 @@ Edits the sales of the 2nd product in the list to be $1000.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="finding-products-code-findp-code"><a class="link" href="#finding-products-code-findp-code">3.11. Finding products : <code>findp</code></a></h3>
+<div class="sect3">
+<h4 id="finding-products-code-findp-code"><a class="link" href="#finding-products-code-findp-code">3.3.4. Finding products : <code>findp</code></a></h4>
 <div class="paragraph">
 <p>Finds products whose description contains a certain keyword<br>
 Format: <code>findp [KEYWORD]</code></p>
@@ -528,8 +625,8 @@ Returns iPhone.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-product-code-deletep-code"><a class="link" href="#deleting-a-product-code-deletep-code">3.12. Deleting a product : <code>deletep</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-product-code-deletep-code"><a class="link" href="#deleting-a-product-code-deletep-code">3.3.5. Deleting a product : <code>deletep</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified product from the system.<br>
 Format: <code>deletep INDEX</code></p>
@@ -581,8 +678,8 @@ Deletes the 1st product in the results of the find command.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clearp-code"><a class="link" href="#clearing-all-entries-code-clearp-code">3.13. Clearing all entries : <code>clearp</code></a></h3>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clearp-code"><a class="link" href="#clearing-all-entries-code-clearp-code">3.3.6. Clearing all entries : <code>clearp</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the product list.<br>
 Format: <code>clearp</code></p>
@@ -601,8 +698,11 @@ Deletes all transactions as well.
 </table>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="adding-a-transaction-code-addt-code"><a class="link" href="#adding-a-transaction-code-addt-code">3.14. Adding a transaction : <code>addt</code></a></h3>
+<h3 id="transaction"><a class="link" href="#transaction">3.4. Transaction</a></h3>
+<div class="sect3">
+<h4 id="adding-a-transaction-code-addt-code"><a class="link" href="#adding-a-transaction-code-addt-code">3.4.1. Adding a transaction : <code>addt</code></a></h4>
 <div class="paragraph">
 <p>Adds a specified transaction to the system.<br>
 Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY] [d/DESCRIPTION]</code><br></p>
@@ -614,7 +714,9 @@ Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY]
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate transactions (with the same customer, product, datetime) are not allowed.
+Duplicate transactions (with the same customer, product, datetime) are not allowed.<br>
+The quantity and money fields can take integers up to 1000000.<br>
+The quantity must be at least 1.
 </td>
 </tr>
 </table>
@@ -629,7 +731,7 @@ Duplicate transactions (with the same customer, product, datetime) are not allow
 The date time field [dt/] is optional, and will be recorded as current local machine time if left empty.<br>
 The money field [m/] is optional, and will be recorded as product price multiplied by quantity if left empty.
 Only need to enter if necessary (i.e. discounts on products).<br>
-The description field [d/] is optional, will be recorded as Null if left empty.
+The description field [d/] is optional, will be recorded as N/A if left empty.
 Only need to enter if user wants to add notes to the transaction.
 </td>
 </tr>
@@ -656,15 +758,15 @@ Adds a transaction, where the 2nd customer bought 10 of the 20th product for $30
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-all-transaction-code-listt-code"><a class="link" href="#listing-all-transaction-code-listt-code">3.15. Listing all transaction : <code>listt</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-transaction-code-listt-code"><a class="link" href="#listing-all-transaction-code-listt-code">3.4.2. Listing all transaction : <code>listt</code></a></h4>
 <div class="paragraph">
 <p>Lists all the transactions.<br>
 Format: <code>listt</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-transaction-code-editt-code"><a class="link" href="#editing-a-transaction-code-editt-code">3.16. Editing a transaction : <code>editt</code></a></h3>
+<div class="sect3">
+<h4 id="editing-a-transaction-code-editt-code"><a class="link" href="#editing-a-transaction-code-editt-code">3.4.3. Editing a transaction : <code>editt</code></a></h4>
 <div class="paragraph">
 <p>Edits a transaction in the system. It allows the user to edit wrong transction
  with correct information.<br>
@@ -699,8 +801,8 @@ Edits the product id and customer id of the 1st transaction to be 101 and 123 re
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-transaction-code-findt-code"><a class="link" href="#locating-transaction-code-findt-code">3.17. Locating transaction : <code>findt</code></a></h3>
+<div class="sect3">
+<h4 id="locating-transaction-code-findt-code"><a class="link" href="#locating-transaction-code-findt-code">3.4.4. Locating transaction : <code>findt</code></a></h4>
 <div class="paragraph">
 <p>Finds transactions whose attributes match the given attributes.<br>
 Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]</code></p>
@@ -755,8 +857,8 @@ Returns all transactions that Bob made on the 7th February 2020 4pm.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="undo-a-transaction-code-undot-code"><a class="link" href="#undo-a-transaction-code-undot-code">3.18. Undo a transaction : <code>undot</code></a></h3>
+<div class="sect3">
+<h4 id="undo-a-transaction-code-undot-code"><a class="link" href="#undo-a-transaction-code-undot-code">3.4.5. Undo a transaction : <code>undot</code></a></h4>
 <div class="paragraph">
 <p>Undo the specified transaction from the system. It allows the user to remove a transaction in case he/she keyed inaccurate
 information.<br>
@@ -779,11 +881,23 @@ Format: <code>undot INDEX</code></p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Why undot instead of deletet? Deletet implies that transaction is only deleted but undot is more fitting as the product details will be modified too.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 Adds the quantity in the transaction back to the product and reduces the sales of the product by transaction amount.
@@ -809,8 +923,8 @@ Undo the 1st transaction in the results of the find command.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-transactions-code-cleart-code"><a class="link" href="#clearing-all-transactions-code-cleart-code">3.19. Clearing all transactions : <code>cleart</code></a></h3>
+<div class="sect3">
+<h4 id="clearing-all-transactions-code-cleart-code"><a class="link" href="#clearing-all-transactions-code-cleart-code">3.4.6. Clearing all transactions : <code>cleart</code></a></h4>
 <div class="paragraph">
 <p>Clears all transactions from the list of transactions.<br>
 Format: <code>cleart</code></p>
@@ -828,8 +942,11 @@ Permanently deletes all the stored transaction data in the application.
 </table>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="viewing-the-top-selling-and-worst-selling-products"><a class="link" href="#viewing-the-top-selling-and-worst-selling-products">3.20. Viewing the top-selling and worst-selling products.</a></h3>
+<h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
+<div class="sect3">
+<h4 id="viewing-the-top-selling-and-worst-selling-products"><a class="link" href="#viewing-the-top-selling-and-worst-selling-products">3.5.1. Viewing the top-selling and worst-selling products.</a></h4>
 <div class="paragraph">
 <p>Displays and updates the top-selling and worst-selling products (sorted by profit) as transactions are made.<br></p>
 </div>
@@ -852,8 +969,8 @@ This is a passive feature. Relaunch the window to get the updated information.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-the-product-sales-and-quantity-histogram"><a class="link" href="#viewing-the-product-sales-and-quantity-histogram">3.21. Viewing the product sales and quantity histogram.</a></h3>
+<div class="sect3">
+<h4 id="viewing-the-product-sales-and-quantity-histogram"><a class="link" href="#viewing-the-product-sales-and-quantity-histogram">3.5.2. Viewing the product sales and quantity histogram.</a></h4>
 <div class="paragraph">
 <p>Displays and updates the histogram of product sales and quantity.<br>
 Plots 2 graphs:<br>
@@ -879,8 +996,8 @@ This is a passive feature. Relaunch the histogram window to udpate the plot.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="getting-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">3.22. Getting the revenue made in a certain period : <code>revenue</code></a></h3>
+<div class="sect3">
+<h4 id="getting-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">3.5.3. Getting the revenue made in a certain period : <code>revenue</code></a></h4>
 <div class="paragraph">
 <p>Gets the revenue made in a selected period.<br>
 Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -914,8 +1031,8 @@ Returns the revenue from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="getting-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#getting-the-profit-made-in-a-certain-period-code-profit-code">3.23. Getting the profit made in a certain period : <code>profit</code></a></h3>
+<div class="sect3">
+<h4 id="getting-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#getting-the-profit-made-in-a-certain-period-code-profit-code">3.5.4. Getting the profit made in a certain period : <code>profit</code></a></h4>
 <div class="paragraph">
 <p>Gets the profit made in a selected period.<br>
 Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -949,8 +1066,8 @@ Returns the profit from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.24. Setting the low-inventory threshold : <code>lowlimit</code></a></h3>
+<div class="sect3">
+<h4 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">3.5.5. Setting the low-inventory threshold : <code>lowlimit</code></a></h4>
 <div class="paragraph">
 <p>Sets the notification threshold for individual product and updates the bar indicator of the product.<br>
 Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
@@ -979,7 +1096,8 @@ Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The default threshold represents 20% of the desired quantity.
+The default threshold represents 20% of the desired quantity.<br>
+The quantity threshold can take integers up to 1000000.
 </td>
 </tr>
 </table>
@@ -996,32 +1114,8 @@ Sets the low inventory threshold for the 1st product as 20.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="receiving-notification-while-a-certain-product-is-running-low"><a class="link" href="#receiving-notification-while-a-certain-product-is-running-low">3.25. Receiving notification while a certain product is running low.</a></h3>
-<div class="paragraph">
-<p>Pops up notification if quantity of product is below threshold.<br>
-Displays the product name and remaining product quantity.</p>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/PopupNotification.png" alt="PopupNotification">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This is a passive feature.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.26. Predicting the sales for the next month : <code>predict</code></a></h3>
+<div class="sect3">
+<h4 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">3.5.6. Predicting the sales for the next month : <code>predict</code></a></h4>
 <div class="paragraph">
 <p>Predicts sales for the next month based on sales in the previous three months<br>
 Format: <code>predict</code></p>
@@ -1038,8 +1132,8 @@ Format: <code>predict</code></p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="plotting-sales-code-plotsales-code"><a class="link" href="#plotting-sales-code-plotsales-code">3.27. Plotting sales: <code>plotsales</code>.</a></h3>
+<div class="sect3">
+<h4 id="plotting-sales-code-plotsales-code"><a class="link" href="#plotting-sales-code-plotsales-code">3.5.7. Plotting sales: <code>plotsales</code>.</a></h4>
 <div class="paragraph">
 <p>Plots a graph with the sales of the selected product in a given time period.<br>
 Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -1095,90 +1189,6 @@ Plots a graph with the sales of the selected product in the past week.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-from-the-program-code-exit-code"><a class="link" href="#exiting-from-the-program-code-exit-code">3.28. Exiting from the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits from the program, closes all opened windows.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.29. Saving the data</a></h3>
-<div class="paragraph">
-<p>The application data is saved in the hard disk automatically after any command that changes the data.<br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>There is no need to save manually.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">3.30. Reusing previous inputs</a></h3>
-<div class="paragraph">
-<p>The application keeps the history of previous inputs that was keyed in the command line.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Can keep history of up to 100 inputs.<br></p>
-</li>
-<li>
-<p>Up arrow key in command line to navigate up the history of inputs.<br></p>
-</li>
-<li>
-<p>Down arrow key in command line to navigate down the history of inputs.<br></p>
-</li>
-<li>
-<p>Commands are saved into the history automatically.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The history is deleted after application closes.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">3.31. Keeping track of products that are running low on stock</a></h3>
-<div class="paragraph">
-<p>The product list updates and sort by product quantity automatically.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This is a passive feature. The progress bar indicator beside the products' name represents visualises the remaining balance.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/TrackProductBalance.png" alt="TrackProductBalance" width="790">
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1187,7 +1197,7 @@ This is a passive feature. The progress bar indicator beside the products' name 
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How to delete a product?<br>
-<strong>A</strong>: First, display a list of product, e.g. <code>listp</code>. Then type <code>deletep INDEX</code> where the index refers to the index displayed in the list. Refer to <a href="#deleting-a-product-code-deletep-code">Section 3.12, &#8220;Deleting a product : <code>deletep</code>&#8221;</a>.</p>
+<strong>A</strong>: First, display a list of product, e.g. <code>listp</code>. Then type <code>deletep INDEX</code> where the index refers to the index displayed in the list. Refer to <a href="#deleting-a-product-code-deletep-code">Section 3.3.5, &#8220;Deleting a product : <code>deletep</code>&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -1296,4 +1306,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 05:34:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 05:37:00 UTC</div></div></div></body></html>

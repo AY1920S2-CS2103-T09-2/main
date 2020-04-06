@@ -1,0 +1,831 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Su Yee - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">iTrack Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-T09-2/main.git"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Su Yee - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-itrack-pro"><a class="link" href="#project-itrack-pro">PROJECT: iTrack Pro</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>iTrack Pro is for the grocery shop owners to keep track of the products, customers, and transactions of the shop and have a better understanding of the business by viewing the performance of products and behaviors of customers. It is also able to provide an analysis of the entire business to help the owner manage the shop.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added <strong>the ability to manage products (add, list, find, delete, clear, edit)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to manage products in the inventory easily. User can add, delete or edit products, and list or clear all products. Users can also find products based on keywords.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because shop owners can have many products and managing them manually can be inefficient. Hence, the inventory system provides a convenient way for them to keep track of their products.</p>
+</li>
+<li>
+<p>Highlights: Though the implementation seems similar to the <code>Person</code> class in the addressbook, it was challenging as the fields were different and the execution of some commands varied due to the different requirements.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added <strong>the ability to view and analyse statistics (revenue, profit, predict sales)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to view and analyse statistics based on transactions added to the inventory system.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because shop owners can gain insight to their business and know how profitable they are. By knowing the revenue and profit, the user can gauge market demand for their products and employ suitable marketing strategies to improve sales. Moreover, users can get the predicted sales for the next month, enabling them to make more informed business decisions.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The difficult part was to determine how and when the revenue/ profit was to be calculated, and the best way to structure the classes.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added id for <code>Customer</code> and <code>Product</code> and made use of customer and product id fields to prevent duplicate transactions (during transaction edit) (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/122">#122</a>)</p>
+</li>
+<li>
+<p>Added view top-selling products function (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/112">#112</a>)</p>
+</li>
+<li>
+<p>Updated ui for statistics window and notification (Pull requests <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/130">#130</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/112">#112</a>)</p>
+</li>
+<li>
+<p>Wrote tests for product features to increase coverage by 16.3% to 66.752% (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/82">#82</a>)</p>
+</li>
+<li>
+<p>Wrote tests for statistics features (Pull requests <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/119">#119</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/97">#97</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/model/product">Product model</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/product">Product commands</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/product">Product parser</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/storage/product">Product storage</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/product">Product ui</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/statistics">Statistics commands</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/statistics">Statistics parser</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/statistics">Statistics ui</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui">Statistics window</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/commands/product">Test product commands</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/parser/product">Test product parser</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/model/product">Test product model</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/storage">Test product storage</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/testutil/product">Test product testutil</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/commands/statistics">Test revenue/profit commands</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed and merge code of teammates</p>
+</li>
+<li>
+<p>Created and assigned issues</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/93">#93</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/94">#94</a>)</p>
+</li>
+<li>
+<p>Added restrictions for each field (e.g. max value for price and quantity, max length for address) (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/142">#142</a>)</p>
+</li>
+<li>
+<p>Modify tests to suit modified <code>Person</code> (<code>Customer</code>) class</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edited ArchitectureSequenceDiagram, BetterModelClassDiagram, DeleteSequenceDiagram, LogicClassDiagram to reflect current app structure</p>
+</li>
+<li>
+<p>Replaced ModelClassDiagram and StorageClassDiagram with created diagrams to reflect current class structure</p>
+</li>
+<li>
+<p>Added implementation, sequence and activity diagrams for product features (Pull requests <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/100">#100</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/103">#103</a>)</p>
+</li>
+<li>
+<p>Added implementation, sequence and activity diagrams for revenue/profit features</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class: <a href="https://github.com/AY1920S2-CS2103-T09-1/main">T09-1</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created team organisation on github and set up address book in organisation repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="adding-a-product-code-addp-code"><a class="link" href="#adding-a-product-code-addp-code">Adding a product: <code>addp</code></a></h4>
+<div class="paragraph">
+<p>Adds a product to the product list.<br>
+Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate products (with the same description, cost price, price) are not allowed.<br>
+The price, cost price, quantity and sales can take integers up to 1000000.<br>
+The price and cost price must be at least $1.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A product created without providing values for sales (in SGD) will be created with 0 sales.<br>
+The default threshold value is 20% of quantity of product.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AddProduct.png" alt="AddProduct" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addp d/iphone x pr/1000 q/10 cp/300</code></p>
+</li>
+<li>
+<p><code>addp d/camera pr/2000 q/90 s/100 cp/1000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-product-code-editp-code"><a class="link" href="#editing-a-product-code-editp-code">Editing a product : <code>editp</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing product in the displayed product list.<br>
+Format: <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [cp/COSTPRICE] [s/SALES]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the product at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed product list. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editp 1 pr/1150 q/80</code><br>
+Edits the price and quantity of the 1st product in the list to be $1150 and 80 respectively.</p>
+</li>
+<li>
+<p><code>editp 2 s/1000</code><br>
+Edits the sales of the 2nd product in the list to be $1000.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clearp-code"><a class="link" href="#clearing-all-entries-code-clearp-code">Clearing all entries : <code>clearp</code></a></h4>
+<div class="paragraph">
+<p>Clears all entries from the product list.<br>
+Format: <code>clearp</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Permanently deletes all the stored product data in the application.<br>
+Deletes all transactions as well.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-product-code-deletep-code"><a class="link" href="#deleting-a-product-code-deletep-code">Deleting a product : <code>deletep</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified product from the system.<br>
+Format: <code>deletep INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the product at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed product list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deletes transactions that are associated with this particular product as well.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listp</code><br>
+<code>deletep 2</code><br>
+Deletes the 2nd product in the product list.</p>
+</li>
+<li>
+<p><code>findp camera</code><br>
+<code>deletep 1</code><br>
+Deletes the 1st product in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-products-code-findp-code"><a class="link" href="#finding-products-code-findp-code">Finding products : <code>findp</code></a></h4>
+<div class="paragraph">
+<p>Finds products whose description contains a certain keyword<br>
+Format: <code>findp [KEYWORD]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g blue will match Blue</p>
+</li>
+<li>
+<p>At least one of the option fields must be provided.</p>
+</li>
+<li>
+<p>Only full words will be matched for keywords e.g. blu will not match blue</p>
+</li>
+<li>
+<p>The keyword will be searched only in the product’s description.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. blue shoes will match shoes blue</p>
+</li>
+<li>
+<p>Products matching at least one keyword will be returned (i.e. OR search). e.g. blue shoes will return blue slippers, red shoes</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FindProduct.png" alt="FindProduct" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findp camera</code><br>
+Returns camera.</p>
+</li>
+<li>
+<p><code>findp iphone</code><br>
+Returns iPhone.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-products-code-listp-code"><a class="link" href="#listing-all-products-code-listp-code">Listing all products : <code>listp</code></a></h4>
+<div class="paragraph">
+<p>Show all products in the product list.<br>
+Format: <code>listp</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The product is automatically sorted by the product quantity, represented by the bar indicator beside the product name.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-the-revenue-made-in-a-certain-period-code-revenue-code"><a class="link" href="#getting-the-revenue-made-in-a-certain-period-code-revenue-code">Getting the revenue made in a certain period : <code>revenue</code></a></h4>
+<div class="paragraph">
+<p>Gets the revenue made in a selected period.<br>
+Format: <code>revenue [sd/START_DATE] [ed/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
+</li>
+<li>
+<p>The start date must be before or equal to end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>revenue sd/2020-01-01 10:00 ed/2020-12-31 10:01</code><br>
+Returns the revenue from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-the-profit-made-in-a-certain-period-code-profit-code"><a class="link" href="#getting-the-profit-made-in-a-certain-period-code-profit-code">Getting the profit made in a certain period : <code>profit</code></a></h4>
+<div class="paragraph">
+<p>Gets the profit made in a selected period.<br>
+Format: <code>profit [sd/START_DATE] [ed/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
+</li>
+<li>
+<p>The start date must be before or equal to end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>profit sd/2020-01-01 10:00 ed/2020-12-31 10:01</code><br>
+Returns the profit from Jan 1 2020 10am to Dec 31 2020 10:01am</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="predicting-the-sales-for-the-next-month-code-predict-code"><a class="link" href="#predicting-the-sales-for-the-next-month-code-predict-code">Predicting the sales for the next month : <code>predict</code></a></h4>
+<div class="paragraph">
+<p>Predicts sales for the next month based on sales in the previous three months<br>
+Format: <code>predict</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The average of the profits made in the past three months is the predicted sales for next month.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-the-top-selling-and-worst-selling-products"><a class="link" href="#viewing-the-top-selling-and-worst-selling-products">Viewing the top-selling and worst-selling products.</a></h4>
+<div class="paragraph">
+<p>Displays and updates the top-selling and worst-selling products (sorted by profit) as transactions are made.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a passive feature. Relaunch the window to get the updated information.
+<code>F2</code> key for quick access to launch/relaunch the window.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature"><a class="link" href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature">Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></h3>
+<div class="paragraph">
+<p>The manage product mechanism is facilitated by <code>InventorySystemParser</code>.
+First, the InventorySystemParser class parses the user command.
+This results in a Command object which is executed by the LogicManager.
+The command execution modifies Model&#8217;s customer list depending on the command.
+The result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.</p>
+</div>
+<div class="paragraph">
+<p>The following commands are available to be parsed by InventorySystemParser:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddCustomerCommand/AddProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the customer/product into the list in the inventory system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ListCustomerCommand/ListProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lists all customer/product in the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ClearCustomerCommand/ClearProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Clears all customer/product in the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeleteCustomerCommand/DeleteProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the selected customer/product from the list in the inventory system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>EditCustomerCommand/EditProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the customer/product details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>FindCustomerCommand/FindProductCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Finds customer/product with attributes containing given keyword(s).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The commands all inherit from superclass <code>Command</code>. Only add, delete, edit and find commands require a command parser to parse the arguments entered by the user.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddItemSequenceDiagram.png" alt="AddItemSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the list operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListItemSequenceDiagram.png" alt="ListItemSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the edit operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditItemSequenceDiagram.png" alt="EditItemSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a command that changes the customer/product list in the model:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ProductActivityDiagram.png" alt="ProductActivityDiagram">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-commands-are-executed"><a class="link" href="#aspect-how-commands-are-executed">Aspect: How commands are executed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Keep customers/products in the inventory system</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, use less memory</p>
+</li>
+<li>
+<p>Cons: If inventory system is corrupted then the data is lost</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep customers/products in individual management systems, separate each of the classes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Keep implementation of products, customers and transactions separate</p>
+</li>
+<li>
+<p>Cons: Use more memory, tedious implementation</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-commands"><a class="link" href="#aspect-data-structure-to-support-the-commands">Aspect: Data structure to support the commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list (<code>ArrayList</code>) to store the customers/products</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to sort and iterate through the list, get(index) method always gives an O(1) performance</p>
+</li>
+<li>
+<p>Cons: allows duplicates</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a hashmap to store the customers/products</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Find can be done in O(1), does not allow duplicate keys</p>
+</li>
+<li>
+<p>Cons: Difficult to sort and iterate through hashmap, get(key) can be O(1) in the best case and O(n) in the worst case.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2"><a class="link" href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2">Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></h3>
+<div class="paragraph">
+<p>The manage product mechanism is facilitated by <code>InventorySystemParser</code>.
+First, the InventorySystemParser class parses the user command.
+Then the <code>RevenueCommandParser/ProfitCommandParser</code> parses the user input arguments into Command objects.
+The resulting <code>RevenueCommand/ProfitCommand</code> is executed by the LogicManager.
+The command execution calculates the revenue/profit depending on the command.
+The result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.</p>
+</div>
+<div class="paragraph">
+<p>The following commands are available to be parsed by InventorySystemParser:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RevenueCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Gets the revenue made in a selected period.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProfitCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Gets the profit made in a selected period.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The commands all inherit from superclass <code>Command</code> and require command parsers to parse the user input arguments.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the profit operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ProfitSequenceDiagram.png" alt="ProfitSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The revenue operation works in the same way as the profit operation.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-commands-are-executed-2"><a class="link" href="#aspect-how-commands-are-executed-2">Aspect: How commands are executed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Calculate revenue/profit only when needed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Decreases coupling, easy to test</p>
+</li>
+<li>
+<p>Cons: Need to keep calculating if command is frequently used (increase time complexity especially if transaction list is long)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep track of revenue/profit in a singleton class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to calculate when revenue/profit command is executed (instead, revenue/profit is updated whenever a transaction is added or edited)</p>
+</li>
+<li>
+<p>Cons: Hard to unit test, increase coupling</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 05:37:00 UTC</div></div></div></body></html>
