@@ -1,0 +1,570 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Jun Hao - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">iTrack Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-T09-2/main.git"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Jun Hao - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-itrack-pro"><a class="link" href="#project-itrack-pro">PROJECT: iTrack Pro</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>iTrack Pro is for the grocery shop owners to keep track of the products, customers, and transactions of the shop and have a better understanding of the business by viewing the performance of products and behaviors of customers. It is also able to provide an analysis of the entire business to help the owner manage the shop.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added <strong>the ability to find customers by specified attributes</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to locate customers easily by name, address, email or phone number.</p>
+</li>
+<li>
+<p>Justification: This feature improves the application significantly because user can have many customers, and it can be difficult to keep track of customers manually.</p>
+</li>
+<li>
+<p>Highlights: The original find feature was only by name, the implementation has to be changed and refactored to accommodate finding by other attributes too.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added <strong>visualisation of product balance on Product Ui via progress bar indicator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to easily identify stocks that are running low.</p>
+</li>
+<li>
+<p>Justification: This feature improves the application significantly as users would not have to struggle looking at numbers only to see which stock is running low soon.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required an in-depth analysis of design alternatives. The difficult part was to determine how the remaining stock was to be calculated, and the best way to structure the classes.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a command history feature that allows the user to navigate to previous commands using up/down keys (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/92">#92</a>)</p>
+</li>
+<li>
+<p>Added lowlimit command that allows the user to set individual product low quantity threshold (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/98">#98</a>)</p>
+</li>
+<li>
+<p>Added notification popup window when stock quantity goes below threshold (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/99">#99</a>)</p>
+</li>
+<li>
+<p>Added cost price field to Product class to calculate profit (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/114">#114</a>)</p>
+</li>
+<li>
+<p>Updated ui for statistics window (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/129">#129</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/model/customer">Customer model</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/customer">Customer commands</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/customer">Customer parser</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/storage/customer">Customer storage</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/customer">Customer ui</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/commands/product/LowLimitCommand.java">LowLimit command</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/parser/product/LowLimitCommandParser.java">LowLimit parser</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/ui/NotificationWindow.java">LowLimit Ui</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/ui/CommandBox.java">Command history feature</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.3</code> (4 releases) on GitHub</p>
+</li>
+<li>
+<p>Reviewed and merged teammates' pull requests</p>
+</li>
+<li>
+<p>Created and managed milestones &amp; issues</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added more conditions for duplicate customers (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/185">#185</a>)</p>
+</li>
+<li>
+<p>Fix alignment of address label in CustomerCard Ui (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/185">#185</a>)</p>
+</li>
+<li>
+<p>Added restrictions for number of tags when editing customers (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/185">#185</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentations:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added user stories in Developer Guide (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/20">#20</a>)</p>
+</li>
+<li>
+<p>Combined customer and product common features for Developer Guide (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/110">#110</a>)</p>
+</li>
+<li>
+<p>Updated User Guide to reflect latest application Ui and features (Pull requests <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/127">#127</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/138">#138</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/189">#189</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="adding-a-customer-code-addc-code"><a class="link" href="#adding-a-customer-code-addc-code">Adding a customer: <code>addc</code></a></h4>
+<div class="paragraph">
+<p>Adds a customer to the customer list<br>
+Format: <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A customer can have up to 5 tags (including 0).<br></p>
+</li>
+<li>
+<p>Duplicate customers (with the same name, phone, email, address) are not allowed.<br></p>
+</li>
+<li>
+<p>The address field can take up to 45 characters.<br></p>
+</li>
+<li>
+<p>The name field can take up to 30 characters.<br></p>
+</li>
+<li>
+<p>The phone field can be between 3 to 15 characters long and contain only integers.<br></p>
+</li>
+<li>
+<p>The  email field can take up to 40 characters and should be a valid email format.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addc n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+</li>
+<li>
+<p><code>addc n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-customer-code-editc-code"><a class="link" href="#editing-a-customer-code-editc-code">Editing a customer: <code>editc</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing customer in the customer list.<br>
+Format: <code>editc INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the customer at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed customer list. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the customer will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the customer’s tags by typing t/ without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editc 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st customer to be 91234567 and <a href="mailto:johndoe@example.com">johndoe@example.com</a> respectively.</p>
+</li>
+<li>
+<p><code>editc 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd customer to be Betsy Crower and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-customers-code-clearc-code"><a class="link" href="#clearing-all-customers-code-clearc-code">Clearing all customers: <code>clearc</code></a></h4>
+<div class="paragraph">
+<p>Clears all entries from the customer list.<br>
+Format: <code>clearc</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Permanently deletes all the stored customer data in the application.<br>
+Deletes all transactions as well.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-customer-code-deletec-code"><a class="link" href="#deleting-a-customer-code-deletec-code">Deleting a customer: <code>deletec</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified customer from the customer list that is currently being displayed.<br>
+Format: <code>deletec INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the customer at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed customer list.</p>
+</li>
+<li>
+<p>The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deletes transactions that are associated with this particular customer as well.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listc</code><br>
+<code>deletec 2</code><br>
+Deletes the 2nd customer in the customer list.</p>
+</li>
+<li>
+<p><code>findc n/Betsy</code><br>
+<code>deletec 1</code><br>
+Deletes the 1st customer in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-customers-by-name-code-findc-code"><a class="link" href="#locating-customers-by-name-code-findc-code">Locating customers by name: <code>findc</code></a></h4>
+<div class="paragraph">
+<p>Finds customers whose attributes match the given attributes.<br>
+Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g hans will match Hans</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Only full words will be matched for keywords e.g. Han will not match Hans</p>
+</li>
+<li>
+<p>The order of the attributes does not matter. e.g. Hans Bo will match Bo Hans</p>
+</li>
+<li>
+<p>Only customers matching all keywords will be returned (i.e. AND search)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FindCustomerByAddress.png" alt="FindCustomerByAddress" width="790">
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FindCustomerByAddress2.png" alt="FindCustomerByAddress2" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findc n/John</code><br>
+Returns john and John Doe from the customer list.</p>
+</li>
+<li>
+<p><code>findc n/Betsy Tim John</code><br>
+Returns any customer having names Betsy, Tim, or John in the customer list.</p>
+</li>
+<li>
+<p><code>findc a/serangoon yishun</code><br>
+Returns all customers with address in Serangoon and Yishun.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-customers-code-listc-code"><a class="link" href="#listing-all-customers-code-listc-code">Listing all customers: <code>listc</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all customers in the customer list.<br>
+Format: <code>listc</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-the-low-inventory-threshold-code-lowlimit-code"><a class="link" href="#setting-the-low-inventory-threshold-code-lowlimit-code">Setting the low-inventory threshold : <code>lowlimit</code></a></h4>
+<div class="paragraph">
+<p>Sets the notification threshold for individual product and updates the bar indicator of the product.<br>
+Format: <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>THRESHOLD</code> must be non-negative integers, i.e. 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>PRODUCT_ID</code> refers to the index number shown in the displayed products list.</p>
+</li>
+<li>
+<p>The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default threshold represents 20% of the desired quantity.<br>
+The quantity threshold can take integers up to 1000000.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lowlimit p/1 t/20</code><br>
+Sets the low inventory threshold for the 1st product as 20.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="keeping-track-of-products-that-are-running-low-on-stock"><a class="link" href="#keeping-track-of-products-that-are-running-low-on-stock">Keeping track of products that are running low on stock</a></h4>
+<div class="paragraph">
+<p>The product list updates and sorts by the progress bar indicator automatically.<br>
+Products are ordered by the level of progress bar indicator. (E.g. the lower the bar, the higher it is in the list).
+This is to help the user easier to know which products are running low on stock.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ProductCard.png" alt="ProductCard">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The progress bar indicator beside the products' name visualises the remaining balance.<br></p>
+</li>
+<li>
+<p>The bar color depends on quantity / threshold * 5, and changes as the level decreases, from green &#8594; yellow &#8594; orange &#8594; red.<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a passive feature.<br>
+Green: &gt;0.6<br>
+Yellow: 0.6<br>
+Orange: 0.4<br>
+Red: 0.2
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="receiving-notification-while-a-certain-product-is-running-low"><a class="link" href="#receiving-notification-while-a-certain-product-is-running-low">Receiving notification while a certain product is running low.</a></h4>
+<div class="paragraph">
+<p>Pops up notification if quantity of product is below threshold.<br>
+Displays the product name and remaining product quantity.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/PopupNotification.png" alt="PopupNotification">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a passive feature.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reusing-previous-inputs"><a class="link" href="#reusing-previous-inputs">Reusing previous inputs</a></h4>
+<div class="paragraph">
+<p>The application keeps the history of previous inputs that was keyed in the command line.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Can keep history of up to 100 inputs.<br></p>
+</li>
+<li>
+<p>Up arrow key in command line to navigate up the history of inputs.<br></p>
+</li>
+<li>
+<p>Down arrow key in command line to navigate down the history of inputs.<br></p>
+</li>
+<li>
+<p>Commands are saved into the history automatically.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The history is deleted after application closes.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 14:46:18 UTC</div></div></div></body></html>
