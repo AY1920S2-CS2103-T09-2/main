@@ -24,7 +24,7 @@
 <ul class="sectlevel2">
 <li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature">3.1. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
 <li><a href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/ Edit/ Delete <a href="#transaction">transactions</a></a></li>
-<li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2">3.3. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
+<li><a href="#get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature">3.3. Get <a href="#revenue">revenue</a>/<a href="#profit">profit</a> feature</a></li>
 <li><a href="#logging">3.4. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
@@ -45,6 +45,7 @@
 <li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
+<li><a href="#effort">Appendix H: Effort</a></li>
 </ul>
 </div>
 </div>
@@ -69,19 +70,6 @@
 </div>
 <div class="paragraph">
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103-T09-2/main/docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
@@ -144,7 +132,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="1000" height="1000">
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
@@ -154,9 +142,9 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram" width="500" height="500">
 </div>
-<div class="title">Figure 3. Component interactions for <code>deletec 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>deletep 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -166,7 +154,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="1000" height="1000">
 </div>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
@@ -197,7 +185,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="1000" height="1000">
 </div>
 <div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
@@ -229,7 +217,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram" width="1000" height="1000">
 </div>
 <div class="title">Figure 6. Interactions Inside the Logic Component for the <code>deletec 1</code> Command</div>
 </div>
@@ -250,7 +238,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="1000" height="1000">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -272,6 +260,12 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>exposes an unmodifiable <code>ObservableList&lt;Customer&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Product&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Transaction&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
@@ -285,7 +279,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory System</code>, which <code>Customer</code> can reference. This would allow <code>Inventory System</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Customer</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram" width="500" height="500"></span>
 </td>
 </tr>
 </table>
@@ -295,7 +289,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory Sys
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="700" height="700">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
@@ -414,7 +408,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddItemSequenceDiagram.png" alt="AddItemSequenceDiagram">
+<img src="images/AddItemSequenceDiagram.png" alt="AddItemSequenceDiagram" width="1000" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -422,7 +416,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListItemSequenceDiagram.png" alt="ListItemSequenceDiagram">
+<img src="images/ListItemSequenceDiagram.png" alt="ListItemSequenceDiagram" width="1000" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -430,7 +424,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditItemSequenceDiagram.png" alt="EditItemSequenceDiagram">
+<img src="images/EditItemSequenceDiagram.png" alt="EditItemSequenceDiagram" width="1000" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -438,7 +432,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ProductActivityDiagram.png" alt="ProductActivityDiagram">
+<img src="images/ProductActivityDiagram.png" alt="ProductActivityDiagram" width="500" height="500">
 </div>
 </div>
 <div class="sect3">
@@ -650,7 +644,7 @@ and update the quantity &amp; sales of the new product.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2"><a class="link" href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature-2">3.3. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></h3>
+<h3 id="get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature"><a class="link" href="#get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature">3.3. Get <a href="#revenue">revenue</a>/<a href="#profit">profit</a> feature</a></h3>
 <div class="paragraph">
 <p>The manage product mechanism is facilitated by <code>InventorySystemParser</code>.
 First, the InventorySystemParser class parses the user command.
@@ -694,7 +688,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ProfitSequenceDiagram.png" alt="ProfitSequenceDiagram">
+<img src="images/ProfitSequenceDiagram.png" alt="ProfitSequenceDiagram" width="1000" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -811,24 +805,40 @@ The result of the command execution is encapsulated as a CommandResult object wh
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p><strong>Target user profile</strong>: Shop owners who</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>Are selling products</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cannot afford expensive management systems</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>Are relying on manual work to record products</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>Want to optimise sales based analysis of previous sales</p>
 </li>
 <li>
-<p>prefers typing over mouse input</p>
+<p>Have many products and a large inventory</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>Prefer desktop apps over other types</p>
+</li>
+<li>
+<p>Can type fast</p>
+</li>
+<li>
+<p>Prefer typing over mouse input</p>
+</li>
+<li>
+<p>Are reasonably comfortable using CLI apps</p>
 </li>
 </ul>
 </div>
@@ -1586,4 +1596,13 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 15:56:09 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="effort"><a class="link" href="#effort">Appendix H: Effort</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Explain the difficulty level, challenges faced, effort required, and achievements of the project.
+Use AB3 as a reference point e.g., you can explain that while AB3 deals with only one entity type, your project was harder because it deals with multiple entity types.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 03:26:17 UTC</div></div></div></body></html>
