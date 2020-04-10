@@ -25,8 +25,9 @@
 <li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature">3.1. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
 <li><a href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/ Edit/ Delete <a href="#transaction">transactions</a></a></li>
 <li><a href="#get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature">3.3. Get <a href="#revenue">revenue</a>/<a href="#profit">profit</a> feature</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#setting-low-limit-threshold-to-receive-notifications-for-products">3.4. Setting low limit threshold to receive notifications for products</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -159,7 +160,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CustomerListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
@@ -191,7 +192,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -243,7 +244,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -294,7 +295,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory Sys
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -408,7 +409,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddItemSequenceDiagram.png" alt="AddItemSequenceDiagram" width="1000" height="1000">
+<img src="images/AddItemSequenceDiagram.png" alt="AddItemSequenceDiagram" width="1200" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -416,7 +417,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListItemSequenceDiagram.png" alt="ListItemSequenceDiagram" width="1000" height="1000">
+<img src="images/ListItemSequenceDiagram.png" alt="ListItemSequenceDiagram" width="1200" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -424,7 +425,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditItemSequenceDiagram.png" alt="EditItemSequenceDiagram" width="1000" height="1000">
+<img src="images/EditItemSequenceDiagram.png" alt="EditItemSequenceDiagram" width="1200" height="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -432,7 +433,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ProductActivityDiagram.png" alt="ProductActivityDiagram" width="500" height="500">
+<img src="images/ProductActivityDiagram.png" alt="ProductActivityDiagram" width="700" height="700">
 </div>
 </div>
 <div class="sect3">
@@ -604,7 +605,7 @@ transaction is only generated in AddTransactionCommand.
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-change-the-quantity-sales-attribute-of-product-while-edtting-transactions"><a class="link" href="#aspect-how-to-change-the-quantity-sales-attribute-of-product-while-edtting-transactions">Aspect: How to change the quantity &amp; sales attribute of product while edtting transactions.</a></h5>
+<h5 id="aspect-how-to-change-the-quantity-sales-attribute-of-product-while-editing-transactions"><a class="link" href="#aspect-how-to-change-the-quantity-sales-attribute-of-product-while-editing-transactions">Aspect: How to change the quantity &amp; sales attribute of product while editing transactions.</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -732,14 +733,68 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="setting-low-limit-threshold-to-receive-notifications-for-products"><a class="link" href="#setting-low-limit-threshold-to-receive-notifications-for-products">3.4. Setting low limit threshold to receive notifications for products</a></h3>
+<div class="paragraph">
+<p>The low limit mechanism is facilitated by <code>InventorySystemParser</code>.
+First, the InventorySystemParser class parses the user command.
+Then the <code>LowLimitCommandParser</code> parses the user input arguments into <code>LowLimitCommand</code> object.
+The resulting <code>LowLimitCommand</code> is executed by the LogicManager.
+The command execution sets the updated threshold for the chosen product.
+The result of the command execution is encapsulated as a CommandResult object which is passed back to the Ui.</p>
+</div>
+<div class="paragraph">
+<p>The command inherit from superclass <code>Command</code> and require command parser to parse the user input arguments.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the low limit operation works:
+<span class="image"><img src="images/LowLimitCommandSequenceDiagram.png" alt="LowLimitCommandSequenceDiagram"></span></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-threshold-field-is-being-updated"><a class="link" href="#aspect-how-the-threshold-field-is-being-updated">Aspect: How the threshold field is being updated.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separate low limit threshold command with edit product command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Decreases coupling, easier to test.</p>
+</li>
+<li>
+<p>Cons: Additional command to edit the field of an product.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Integrate with existing edit product command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will reduce number of commands the user needs to use.</p>
+</li>
+<li>
+<p>Cons: Hard to unit test, increase coupling.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -770,7 +825,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1605,4 +1660,4 @@ Expected: Similar to previous.</p>
 Use AB3 as a reference point e.g., you can explain that while AB3 deals with only one entity type, your project was harder because it deals with multiple entity types.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 03:26:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 11:49:35 UTC</div></div></div></body></html>
