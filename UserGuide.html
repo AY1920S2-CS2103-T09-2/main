@@ -399,7 +399,7 @@ Edits the name of the 2nd customer to be Betsy Crower and clears all existing ta
 <h4 id="finding-customers-code-findc-code"><a class="link" href="#finding-customers-code-findc-code">4.2.4. Finding customers: <code>findc</code></a></h4>
 <div class="paragraph">
 <p>Finds customers whose attributes match the given attributes.<br>
-Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
+Format: <code>findc [n/NAME [NAME]&#8230;&#8203;] [p/PHONE] [e/EMAIL] [a/ADDRESS [ADDRESS]&#8230;&#8203;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -415,10 +415,13 @@ Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 <p>Only full words will be matched for keywords e.g. Han will not match Hans</p>
 </li>
 <li>
-<p>The order of the attributes does not matter. e.g. Hans Bo will match Bo Hans</p>
+<p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, n/Bob a/31 will match a/31 n/Bob</p>
 </li>
 <li>
-<p>Only customers matching all keywords will be returned (i.e. AND search)</p>
+<p>Only customers matching all attributes will be returned (i.e. AND search) e.g. <code>findc n/Jane a/31</code> will return customers with 'jane' in their names and 31 in their addresses</p>
+</li>
+<li>
+<p>Customers matching any keywords in an attribute (for name and address only) will be returned (i.e. OR search) e.g. <code>findc a/clementi ave</code> will return customers with 'clementi' or 'ave' in their addresses</p>
 </li>
 </ul>
 </div>
@@ -434,6 +437,18 @@ Format: <code>findc [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]</code></p>
 <img src="images/FindCustomerByAddress2.png" alt="FindCustomerByAddress2" width="790">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only name and address support multiple keywords
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -448,8 +463,8 @@ Returns john and John Doe from the customer list.</p>
 Returns any customer having names Betsy, Tim, or John in the customer list.</p>
 </li>
 <li>
-<p><code>findc a/serangoon yishun</code><br>
-Returns all customers with address in Serangoon and Yishun.</p>
+<p><code>findc a/serangoon n/Bob</code><br>
+Returns all customers with addresses in Serangoon and have Bob in their names.</p>
 </li>
 </ul>
 </div>
@@ -906,7 +921,7 @@ Edits the product id and customer id of the 1st transaction to be 101 and 123 re
 <h4 id="finding-transactions-code-findt-code"><a class="link" href="#finding-transactions-code-findt-code">4.4.4. Finding transactions : <code>findt</code></a></h4>
 <div class="paragraph">
 <p>Finds transactions whose attributes match the given attributes.<br>
-Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]</code></p>
+Format: <code>findt [p/PRODUCT_NAME [PRODUCT_NAME]&#8230;&#8203;] [c/CUSTOMER_NAME [CUSTOMER_NAME]&#8230;&#8203;] [dt/DATE_TIME] [m/MONEY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -919,7 +934,13 @@ Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]<
 <p>At least one of the option fields must be provided.</p>
 </li>
 <li>
-<p>Transactions matching all attributes will be returned (i.e. AND search).</p>
+<p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, c/Bob m/31 will match m/31 c/Bob</p>
+</li>
+<li>
+<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and bag in their product names</p>
+</li>
+<li>
+<p>Transactions matching any keywords in an attribute (for product or customer name only) will be returned (i.e. OR search) e.g. <code>findt c/jane avery</code> will return transactions with 'jane' or 'avery' in their customer names</p>
 </li>
 </ul>
 </div>
@@ -935,6 +956,18 @@ Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]<
 <img src="images/FindTransactionByCustomer.png" alt="FindTransactionByCustomer" width="790">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only product name and customer name support multiple keywords
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -945,8 +978,8 @@ Format: <code>findt [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]<
 Returns all transactions that involve the product <code>iphone</code>.</p>
 </li>
 <li>
-<p><code>findt c/bob</code><br>
-Returns all transactions that involve a customer named Bob.</p>
+<p><code>findt c/bob angie</code><br>
+Returns all transactions that involve a customer named Bob or a customer named Angie.</p>
 </li>
 <li>
 <p><code>findt dt/2020-02-07 16:00</code><br>
@@ -1351,8 +1384,7 @@ e.g. <code>findc n/Betsy</code><br>
 e.g. <code>addp d/iphone x pr/1000 q/10</code></p>
 </li>
 <li>
-<p><strong>Listing all products</strong> : <code>listp</code><br>
-e.g. <code>listp</code></p>
+<p><strong>Listing all products</strong> : <code>listp</code></p>
 </li>
 <li>
 <p><strong>Editing a product</strong> : <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [cp/COSTPRICE] [q/QUANTITY] [s/SALES]</code><br>
@@ -1375,8 +1407,7 @@ e.g. <code>listp</code><br>
 e.g. <code>addt p/20 c/2 dt/2020-02-20 10:00 m/30 q/10 d/under discount</code></p>
 </li>
 <li>
-<p><strong>Listing all transactions</strong> : <code>listt</code><br>
-e.g. <code>listt</code></p>
+<p><strong>Listing all transactions</strong> : <code>listt</code></p>
 </li>
 <li>
 <p><strong>Editing a transaction</strong> : <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code><br>
@@ -1384,21 +1415,23 @@ e.g. <code>editt 1 p/101 c/123</code></p>
 </li>
 <li>
 <p><strong>Finding transactions</strong> : <code>findt [id/ID] [p/PRODUCT_NAME] [c/CUSTOMER_NAME] [dt/DATE_TIME] [m/MONEY]</code><br>
-e.g. <code>findt c/bob dt/2020-02-07</code></p>
+e.g. <code>findt c/bob dt/2020-02-07 10:00</code></p>
 </li>
 <li>
 <p><strong>Undo a transaction</strong> : <code>undot INDEX</code><br>
-e.g. <code>findt 2020-01-03</code><br>
+e.g. <code>findt dt/2020-01-03 10:00</code><br>
 <code>undot 1</code></p>
 </li>
 <li>
 <p><strong>Clearing all transactions</strong> : <code>cleart</code></p>
 </li>
 <li>
-<p><strong>Get the revenue made in a certain period</strong> : <code>revenue sd/START_DATE ed/END_DATE</code></p>
+<p><strong>Get the revenue made in a certain period</strong> : <code>revenue sd/START_DATE ed/END_DATE</code><br>
+e.g. <code>revenue sd/2020-01-01 10:00 ed/2020-12-12 10:01</code></p>
 </li>
 <li>
-<p><strong>Get the profit made in a certain period</strong> : <code>profit sd/START_DATE ed/END_DATE</code></p>
+<p><strong>Get the profit made in a certain period</strong> : <code>profit sd/START_DATE ed/END_DATE</code><br>
+e.g. <code>profit sd/2020-01-01 10:00 ed/2020-12-12 10:01</code></p>
 </li>
 <li>
 <p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code><br>
@@ -1408,7 +1441,8 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 <p><strong>Predicting the sales for the next month</strong> : <code>predict</code></p>
 </li>
 <li>
-<p><strong>Plotting sales</strong> : <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
+<p><strong>Plotting sales</strong> : <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code><br>
+e.g. <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-03-30 10:00</code></p>
 </li>
 <li>
 <p><strong>Exiting from the program</strong> : <code>exit</code></p>
@@ -1419,4 +1453,4 @@ e.g. <code>lowlimit p/1 t/20</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 04:55:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 05:20:25 UTC</div></div></div></body></html>

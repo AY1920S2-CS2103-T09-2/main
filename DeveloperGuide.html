@@ -23,7 +23,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-delete-edit-clear-list-find-a-href-customer-customer-a-a-href-product-product-a-feature">3.1. Add delete/edit/clear/list/find <a href="#customer">customer</a>/<a href="#product">product</a> feature</a></li>
-<li><a href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/ Edit/ Delete <a href="#transaction">transactions</a></a></li>
+<li><a href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/edit/delete <a href="#transaction">transactions</a></a></li>
 <li><a href="#get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature">3.3. Get <a href="#revenue">revenue</a>/<a href="#profit">profit</a> feature</a></li>
 <li><a href="#setting-low-limit-threshold-to-receive-notifications-for-products">3.4. Setting low limit threshold to receive notifications for products</a></li>
 <li><a href="#logging">3.5. Logging</a></li>
@@ -41,9 +41,11 @@
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-customer">G.2. Deleting a customer</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#general">G.1. General</a></li>
+<li><a href="#customer">G.2. Customer</a></li>
+<li><a href="#product">G.3. Product</a></li>
+<li><a href="#transaction">G.4. Transaction</a></li>
+<li><a href="#statistics">G.5. Statistics</a></li>
 </ul>
 </li>
 <li><a href="#effort">Appendix H: Effort</a></li>
@@ -433,7 +435,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ProductActivityDiagram.png" alt="ProductActivityDiagram" width="700" height="700">
+<img src="images/CommandActivityDiagram.png" alt="CommandActivityDiagram" width="500" height="500">
 </div>
 </div>
 <div class="sect3">
@@ -507,7 +509,7 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-edit-delete-a-href-transaction-transactions-a"><a class="link" href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/ Edit/ Delete <a href="#transaction">transactions</a></a></h3>
+<h3 id="add-edit-delete-a-href-transaction-transactions-a"><a class="link" href="#add-edit-delete-a-href-transaction-transactions-a">3.2. Add/edit/delete <a href="#transaction">transactions</a></a></h3>
 <div class="paragraph">
 <p>The user input is handled by the <code>MainWindow</code> class in Ui first, then passed to the <code>LogicManager</code> and parsed into
 <code>AddTransactionCommand</code>, <code>EditTransactionCommand</code>, etc. Depending on the nature of each command, new transaction or
@@ -1561,7 +1563,9 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="general"><a class="link" href="#general">G.1. General</a></h3>
+<div class="sect3">
+<h4 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1.1. Launch and Shutdown</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1573,7 +1577,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample inventory system data. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -1594,44 +1598,9 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-customer"><a class="link" href="#deleting-a-customer">G.2. Deleting a customer</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a customer while all customers are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all customers using the <code>listc</code> command. Multiple customers in the list.</p>
-</li>
-<li>
-<p>Test case: <code>deletec 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>deletec 0</code><br>
-Expected: No customer is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>deletec</code>, <code>deletec x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<div class="sect3">
+<h4 id="saving-data"><a class="link" href="#saving-data">G.1.2. Saving data</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1646,8 +1615,525 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customer"><a class="link" href="#customer">G.2. Customer</a></h3>
+<div class="sect3">
+<h4 id="adding-a-customer"><a class="link" href="#adding-a-customer">G.2.1. Adding a customer</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a customer</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addc n/John p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney</code><br>
+Expected: Customer with given attributes is added to list. Details of the added customer shown in the status message.</p>
+</li>
+<li>
+<p>Prerequisites: the following command already has been executed once already<br>
+Test case: <code>addc n/John p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney</code><br>
+Expected: No customer is added as duplicate customers are not allowed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>addc n/Jane p/98765432 e/jane@example.com a/31 michigan t/friends t/owesMoney t/iphone t/comingThurs t/regular t/giveDiscount</code><br>
+Expected: No customer is added as number of tags should be at most five. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect add commands to try: <code>addc n/Jill</code>, <code>addc n/Jill p/0 e/jill@mail.com a/31 michigan</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-customer"><a class="link" href="#deleting-a-customer">G.2.2. Deleting a customer</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a customer while all customers are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all customers using the <code>listc</code> command. Multiple customers in the list.</p>
+</li>
+<li>
+<p>Test case: <code>deletec 1</code><br>
+Expected: First customer is deleted from the list. Details of the deleted customer shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>deletec 0</code><br>
+Expected: No customer is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>deletec</code>, <code>deletec x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-customer"><a class="link" href="#editing-a-customer">G.2.3. Editing a customer</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a customer while all customers are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all customers using the <code>listc</code> command. Multiple customers in the list.</p>
+</li>
+<li>
+<p>Test case: <code>editc 1 n/Bob</code><br>
+Expected: First customer is edited from the list. Details of the edited customer shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>editc 1 e/0</code><br>
+Expected: No customers is edited as email is invalid. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>editc 1</code>, <code>editc x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-customers"><a class="link" href="#clearing-all-customers">G.2.4. Clearing all customers</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing all customers</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>clearc</code><br>
+Expected: All customers are cleared. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-customers"><a class="link" href="#listing-all-customers">G.2.5. Listing all customers</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing all customers</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listc</code><br>
+Expected: All customers are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-customers"><a class="link" href="#finding-customers">G.2.6. Finding customers</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding customers</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>findc n/alice</code><br>
+Expected: All customers with full word 'alice' in name are listed. Details of success is shown in the status bar.</p>
+</li>
+<li>
+<p>Test case: <code>findc a/serangoon yishun</code><br>
+Expected: All customers with full words matching 'serangoon' or 'yishun' in their addresses are listed. Details of success is shown in the status bar.</p>
+</li>
+<li>
+<p>Test case: <code>findc a/serangoon n/bob</code><br>
+Expected: All customers with full words matching 'serangoon' in their addresses and 'bob' in their names are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="product"><a class="link" href="#product">G.3. Product</a></h3>
+<div class="sect3">
+<h4 id="adding-a-product"><a class="link" href="#adding-a-product">G.3.1. Adding a product</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a product</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addp d/iphone cp/400 pr/1000 q/10 s/100</code><br>
+Expected: Product with given attributes is added to list. Details of the added product shown in the status message.</p>
+</li>
+<li>
+<p>Prerequisites: the following command already has been executed once already<br>
+Test case: <code>addp d/iphone cp/400 pr/1000 q/10 s/100</code><br>
+Expected: No product is added as duplicate products are not allowed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>addp d/iphone cp/400.5 pr/1000 q/10</code><br>
+Expected: No product is added as cost price should be an integer. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect add commands to try: <code>addp d/iphone cp/40 pr/1000 q/x</code> (where x is larger than 1000000), <code>addp d/iphone cp/40 q/100000</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-product"><a class="link" href="#deleting-a-product">G.3.2. Deleting a product</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a product while all products are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all products using the <code>listp</code> command. Multiple products in the list.</p>
+</li>
+<li>
+<p>Test case: <code>deletep 1</code><br>
+Expected: First product is deleted from the list. Details of the deleted product shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>deletep 0</code><br>
+Expected: No product is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>deletep</code>, <code>deletep x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-product"><a class="link" href="#editing-a-product">G.3.3. Editing a product</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a product while all products are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all products using the <code>listp</code> command. Multiple products in the list.</p>
+</li>
+<li>
+<p>Test case: <code>editp 1 d/Bag</code><br>
+Expected: First product is edited from the list. Details of the edited product shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>editp 1 pr/0</code><br>
+Expected: No product is edited as price is invalid. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>editp 1</code>, <code>editp x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-products"><a class="link" href="#clearing-all-products">G.3.4. Clearing all products</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing all products</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>clearp</code><br>
+Expected: All products are cleared. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-products"><a class="link" href="#listing-all-products">G.3.5. Listing all products</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing all products</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listp</code><br>
+Expected: All products are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-products"><a class="link" href="#finding-products">G.3.6. Finding products</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding products</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>findp bag</code><br>
+Expected: All products with full word 'bag' in description are listed. Details of success is shown in the status bar.</p>
+</li>
+<li>
+<p>Test case: <code>findp bag hello</code><br>
+Expected: All products with full words matching 'bag' or 'hello' in description are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transaction"><a class="link" href="#transaction">G.4. Transaction</a></h3>
+<div class="sect3">
+<h4 id="adding-a-transaction"><a class="link" href="#adding-a-transaction">G.4.1. Adding a transaction</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a transaction</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addt c/1 p/1 q/1 dt/2020-04-11 11:44 m/30 d/under discount</code><br>
+Expected: Transaction with given attributes is added to list. Details of the added transaction shown in the status message.</p>
+</li>
+<li>
+<p>Prerequisites: the following command already has been executed once already<br>
+Test case: <code>addt c/1 p/1 q/1 dt/2020-04-11 10:44 m/30 d/under discount</code><br>
+Expected: No transaction is added as duplicate transactions are not allowed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>addt c/1 p/1 q/0</code><br>
+Expected: No transaction is added as quantity should be a positive integer. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect add commands to try: <code>addt c/x p/1 q/2</code> (where x is larger than size of customer list), <code>addt c/1 p/1</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-a-transaction"><a class="link" href="#undoing-a-transaction">G.4.2. Undoing a transaction</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Undoing a transaction while all transactions are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all transactions using the <code>listt</code> command. Multiple products in the list.</p>
+</li>
+<li>
+<p>Test case: <code>undot 1</code><br>
+Expected: First transaction in the list is undone. Details of the undone transaction shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>undot 0</code><br>
+Expected: No transaction is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect undo commands to try: <code>undot</code>, <code>undot x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-transaction"><a class="link" href="#editing-a-transaction">G.4.3. Editing a transaction</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a transaction while all transactions are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all transactions using the <code>listt</code> command. Multiple transactions in the list.</p>
+</li>
+<li>
+<p>Test case: <code>editt 1 d/Discount</code><br>
+Expected: First transaction is edited from the list. Details of the edited transaction shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>editt 1 m/0</code><br>
+Expected: No transaction is edited as amount is invalid. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>editt 1</code>, <code>editt x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-transactions"><a class="link" href="#clearing-all-transactions">G.4.4. Clearing all transactions</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing all transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>cleart</code><br>
+Expected: All transactions are cleared. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-transactions"><a class="link" href="#listing-all-transactions">G.4.5. Listing all transactions</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing all transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listt</code><br>
+Expected: All transactions are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-transactions"><a class="link" href="#finding-transactions">G.4.6. Finding transactions</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>findt c/alice</code><br>
+Expected: All transactions with full word 'alice' in their customer names are listed. Details of success is shown in the status bar.</p>
+</li>
+<li>
+<p>Test case: <code>findt p/bag watch</code><br>
+Expected: All transactions with full words matching 'bag' or 'watch' in their product names are listed. Details of success is shown in the status bar.</p>
+</li>
+<li>
+<p>Test case: <code>findt c/alice m/10</code><br>
+Expected: All transactions with full words matching 'alice' in their customer names and have transaction amounts of 10 are listed. Details of success is shown in the status bar.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics"><a class="link" href="#statistics">G.5. Statistics</a></h3>
+<div class="sect3">
+<h4 id="getting-the-revenue-made-in-a-certain-period"><a class="link" href="#getting-the-revenue-made-in-a-certain-period">G.5.1. Getting the revenue made in a certain period</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Getting the revenue made in a certain period</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least one product present.</p>
+</li>
+<li>
+<p>Test case: <code>revenue sd/2020-01-01 10:00 ed/2020-12-12 10:01</code><br>
+Expected: The calculated revenue is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>revenue sd/2020-09-01 10:00 ed/2020-01-12 10:01</code><br>
+Expected: Revenue cannot be calculated if start date is after end date. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>revenue sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>revenue</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-the-profit-made-in-a-certain-period"><a class="link" href="#getting-the-profit-made-in-a-certain-period">G.5.2. Getting the profit made in a certain period</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Getting the profit made in a certain period</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least one product present.</p>
+</li>
+<li>
+<p>Test case: <code>profit sd/2020-01-01 10:00 ed/2020-12-12 10:01</code><br>
+Expected: The calculated profit is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>profit sd/2020-09-01 10:00 ed/2020-01-12 10:01</code><br>
+Expected: Profit cannot be calculated if start date is after end date. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>profit sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>profit</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -1660,4 +2146,4 @@ Expected: Similar to previous.</p>
 Use AB3 as a reference point e.g., you can explain that while AB3 deals with only one entity type, your project was harder because it deals with multiple entity types.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 04:55:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 05:20:25 UTC</div></div></div></body></html>
