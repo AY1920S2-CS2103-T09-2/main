@@ -1544,37 +1544,6 @@ Expected: Shows the GUI with a set of sample inventory system data. The window s
 </ol>
 </div>
 </li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="saving-data"><a class="link" href="#saving-data">F.1.2. Saving data</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
 </ol>
 </div>
 </div>
@@ -1728,7 +1697,7 @@ Expected: All customers with full word 'alice' in name are listed. Details of su
 </li>
 <li>
 <p>Test case: <code>findc n/alex alice</code><br>
-Expected: All customers with full word <code>alex</code> <strong>OR</strong> <code>alice</code> in name are listed. Details of success message is shown in the status bar.</p>
+Expected: All customers with full word 'alex' <strong>OR</strong> 'alice' in name are listed. Details of success message is shown in the status bar.</p>
 </li>
 <li>
 <p>Test case: <code>findc a/serangoon yishun</code><br>
@@ -1897,8 +1866,8 @@ Expected: All products are listed. Details of success is shown in the status bar
 Expected: All products with full word 'bag' in description are listed. Details of success is shown in the status bar.</p>
 </li>
 <li>
-<p>Test case: <code>findp bag hello</code><br>
-Expected: All products with full words matching 'bag' or 'hello' in description are listed. Details of success is shown in the status bar.</p>
+<p>Test case: <code>findp bag yellow</code><br>
+Expected: All products with full words matching 'bag' or 'yellow' in description are listed. Details of success is shown in the status bar.</p>
 </li>
 </ol>
 </div>
@@ -1953,7 +1922,7 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all transactions using the <code>listt</code> command. Multiple products in the list.</p>
+<p>Prerequisites: List all transactions using the <code>listt</code> command. Multiple transactions in the list.</p>
 </li>
 <li>
 <p>Test case: <code>undot 1</code><br>
@@ -2095,7 +2064,7 @@ Expected: The calculated revenue is shown in the status message.</p>
 Expected: Revenue cannot be calculated if start date is after end date. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>revenue sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>revenue</code><br>
+<p>Other incorrect revenue commands to try: <code>revenue sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>revenue</code><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2124,7 +2093,86 @@ Expected: The calculated profit is shown in the status message.</p>
 Expected: Profit cannot be calculated if start date is after end date. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>profit sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>profit</code><br>
+<p>Other incorrect profit commands to try: <code>profit sd/2020-01-01 10:00 ed/2020-01-12</code>, <code>profit</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-the-low-inventory-threshold"><a class="link" href="#setting-the-low-inventory-threshold">F.5.3. Setting the low-inventory threshold</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Setting the low-inventory threshold</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least one product present.</p>
+</li>
+<li>
+<p>Test case: <code>lowlimit p/1 t/20</code><br>
+Expected: The calculated profit is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>lowlimit p/1 t/0</code><br>
+Expected: Current threshold of product is not modified as threshold can only take positive integer values. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect lowlimit commands to try: <code>lowlimit p/x t/20</code> (where x is more than product list size), <code>lowlimit</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="predicting-the-sales-for-the-next-month"><a class="link" href="#predicting-the-sales-for-the-next-month">F.5.4. Predicting the sales for the next month</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Predicting the sales for the next month</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least one product present.</p>
+</li>
+<li>
+<p>Test case: <code>predict</code><br>
+Expected: The predicted revenue for next month is shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="plotting-sales-of-a-product"><a class="link" href="#plotting-sales-of-a-product">F.5.5. Plotting sales of a product</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Plotting sales of a product</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all products using the <code>listp</code> command. Multiple products in the list.</p>
+</li>
+<li>
+<p>Test case: <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-03-30 10:00</code><br>
+Expected: The sales of the product is plotted in a graph in a new window that pops up.</p>
+</li>
+<li>
+<p>Test case: <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-01-30 10:00</code><br>
+Expected: Sales of product is not plotted as start date is after end date. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect plotsales commands to try: <code>plotsales x sd/2020-03-20 10:00 ed/2020-03-30 10:00</code> (where x is more than product list size), <code>plotsales</code><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2140,8 +2188,30 @@ Expected: Similar to previous.</p>
 <h2 id="effort"><a class="link" href="#effort">Appendix G: Effort</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Explain the difficulty level, challenges faced, effort required, and achievements of the project.
-Use AB3 as a reference point e.g., you can explain that while AB3 deals with only one entity type, your project was harder because it deals with multiple entity types.</p>
+<p>Throughout this journey, we have overcame many challenges and gain much more experience in software engineering.
+Our project was ambitious as it consisted of multiple entities. In addition to the original address book with the persons entity, we also included products and transactions to the system.
+Since the structure was quite complex, we had to brainstorm about the best way to incorporate products and transactions into the app.</p>
+</div>
+<div class="paragraph">
+<p>The person class had to be refactored to fit our user profile of customers.
+The commands for products were similar to the original commands for person, however there were also some differences since the requirements for products and persons varied.
+For example, the attributes required for products are vastly different for customers, and new restrictions will need to be applied too.
+The commands for transactions were quite different from both customers and products, since transaction is an association class between customer and product.
+For example, the add transaction command affects the product quantity and sales, so it will have to update the product too, whereas for customer and product there is no need to modify other classes.
+We also needed to consider the proper way to keep track of customers and products to ensure that there were no duplicates. Initially we tried keeping track using only the attributes however there were bugs so we added customer and product ids.</p>
+</div>
+<div class="paragraph">
+<p>With multiple entities, a lot of thought process went into figuring out how to display all the data.
+Throughout the process, we revamped the ui such that all the information would be presented clearly. Ultimately, our design differed quite a lot from the original as we settled on a tab design.
+Initially, there were different windows showing different information too. In the end, we combined most of the information into a single window, and split the information shown according to categories which are listed as tabs.
+Besides the layout of the ui, the design also took time to finalise as we wanted to make our app look professional and modern.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, the statistics were quite challenging to implement. This is especially so as we used various bars and graphs, which were new to us and we had to learn independently.
+The calculations were relatively easier as it was just simple math calculations of profit etc.</p>
+</div>
+<div class="paragraph">
+<p>In all, even though our project was complex, we managed to implement most of our features and even included extra features that we had not plan on intially. Given the moderate to high difficulty level of the project, we are glad that we achieved our project goals.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:27:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:55:17 UTC</div></div></div></body></html>

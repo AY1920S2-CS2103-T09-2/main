@@ -258,9 +258,9 @@ The history is deleted after application closes.
 Products are ordered by the level of progress bar indicator. (E.g. the lower the bar, the higher it is in the list).
 This is to help the user easier to know which products are running low on stock.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/ProductCard.png" alt="ProductCard">
+<img src="images/ProductCard.png" alt="ProductCard" width="600" height="600">
 </div>
 </div>
 <div class="sidebarblock">
@@ -418,7 +418,7 @@ Format: <code>findc [n/NAME [NAME]&#8230;&#8203;] [p/PHONE] [e/EMAIL] [a/ADDRESS
 <p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, n/Bob a/31 will match a/31 n/Bob</p>
 </li>
 <li>
-<p>Only customers matching all attributes will be returned (i.e. AND search) e.g. <code>findc n/Jane a/31</code> will return customers with 'jane' in their names and 31 in their addresses</p>
+<p>Only customers matching all attributes will be returned (i.e. AND search) e.g. <code>findc n/Jane a/31</code> will return customers with 'jane' in their names and '31' in their addresses</p>
 </li>
 <li>
 <p>Customers matching any keywords in an attribute (for name and address only) will be returned (i.e. OR search) e.g. <code>findc a/clementi ave</code> will return customers with 'clementi' or 'ave' in their addresses</p>
@@ -801,9 +801,9 @@ Deletes all transactions as well.
 <div class="paragraph">
 <p>User can navigate to the transaction panel by clicking on the transactions tab.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/TransactionTab.png" alt="TransactionTab">
+<img src="images/TransactionTab.png" alt="Transaction" width="120" height="120">
 </div>
 </div>
 <div class="sect3">
@@ -937,7 +937,7 @@ Format: <code>findt [p/PRODUCT_NAME [PRODUCT_NAME]&#8230;&#8203;] [c/CUSTOMER_NA
 <p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, c/Bob m/31 will match m/31 c/Bob</p>
 </li>
 <li>
-<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and bag in their product names</p>
+<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and 'bag' in their product names</p>
 </li>
 <li>
 <p>Transactions matching any keywords in an attribute (for product or customer name only) will be returned (i.e. OR search) e.g. <code>findt c/jane avery</code> will return transactions with 'jane' or 'avery' in their customer names</p>
@@ -987,7 +987,7 @@ Returns all transactions made on 7th February 2020 4pm.</p>
 </li>
 <li>
 <p><code>findt m/100</code><br>
-Returns all transactions that have a selling price of 100 dollars.</p>
+Returns all transactions that have an amount of 100 dollars.</p>
 </li>
 <li>
 <p><code>findt c/bob dt/2020-02-07 16:00</code><br>
@@ -1087,9 +1087,9 @@ Permanently deletes all the stored transaction data in the application.
 <div class="paragraph">
 <p>User can navigate to the statistics panel by clicking on the statistics tab.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/StatisticsTab.png" alt="StatisticsTab">
+<img src="images/StatisticsTab.png" alt="Statistics" width="120" height="120">
 </div>
 </div>
 <div class="sect3">
@@ -1109,9 +1109,9 @@ This is a passive feature.
 </tr>
 </table>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/TopSellingProducts.png" alt="TopSellingProducts">
+<img src="images/TopSellingProducts.png" alt="TopSellingProducts" width="650" height="650">
 </div>
 </div>
 </div>
@@ -1135,9 +1135,9 @@ This is a passive feature.
 </tr>
 </table>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/ViewInventory2.png" alt="ViewInventory2">
+<img src="images/ViewInventory2.png" alt="ViewInventory2" width="600" height="600">
 </div>
 </div>
 </div>
@@ -1279,7 +1279,7 @@ The average of the profits made in the past three months is the predicted sales 
 </div>
 </div>
 <div class="sect3">
-<h4 id="plotting-sales-code-plotsales-code"><a class="link" href="#plotting-sales-code-plotsales-code">4.5.7. Plotting sales: <code>plotsales</code></a></h4>
+<h4 id="plotting-sales-of-a-product-code-plotsales-code"><a class="link" href="#plotting-sales-of-a-product-code-plotsales-code">4.5.7. Plotting sales of a product: <code>plotsales</code></a></h4>
 <div class="paragraph">
 <p>Plots a graph with the sales of the selected product in a given time period.<br>
 Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
@@ -1329,9 +1329,9 @@ Plots a graph with the sales of the selected product in the past week.</p>
 </li>
 </ul>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
-<img src="images/SalesPlot.png" alt="SalesPlot">
+<img src="images/SalesPlot.png" alt="SalesPlot" width="500" height="500">
 </div>
 </div>
 </div>
@@ -1453,4 +1453,4 @@ e.g. <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-03-30 10:00</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:27:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:55:17 UTC</div></div></div></body></html>
