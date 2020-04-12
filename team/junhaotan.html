@@ -465,8 +465,10 @@ The result of the command execution is encapsulated as a CommandResult object wh
 <p>The command inherit from superclass <code>Command</code> and require command parser to parse the user input arguments.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the low limit operation works:
-<span class="image"><img src="../images/LowLimitCommandSequenceDiagram.png" alt="LowLimitCommandSequenceDiagram"></span></p>
+<p>The following sequence diagram shows how the low limit operation works:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/LowLimitCommandSequenceDiagram.png" alt="LowLimitCommandSequenceDiagram"></span></p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -505,5 +507,54 @@ The result of the command execution is encapsulated as a CommandResult object wh
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="notification-window-for-products"><a class="link" href="#notification-window-for-products">Notification window for products</a></h3>
+<div class="paragraph">
+<p>The notification window appears whenever an product&#8217;s quantity reaches the threshold that was set.<br>
+The notification comes with information such as the product&#8217;s description and remaining quantity left.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:30:02 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The following activity diagram shows how the operation works:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/NotificationWindowActivityDiagram.png" alt="NotificationWindowActivityDiagram"></span></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-display-of-the-notification-window"><a class="link" href="#aspect-display-of-the-notification-window">Aspect: Display of the notification window</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Only display product&#8217;s name and remaining quantity.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User friendly, easy to implement.</p>
+</li>
+<li>
+<p>Cons: Have to find and change the product&#8217;s quantity via the command line.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Provide quick way to change product&#8217;s quantity via GUI</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Speeds up the process of stocking up.</p>
+</li>
+<li>
+<p>Cons: Hard to do testing for GUI, and project scope was on command line application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:37:13 UTC</div></div></div></body></html>
