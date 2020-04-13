@@ -24,35 +24,110 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>added <strong>the ability to manage transcations</strong>, e.g., <strong>addt</strong>, <strong>editt</strong>, <strong>findt</strong>, <strong>listt</strong>, <strong>undot</strong>, <strong>cleart</strong>.</p>
+<p>Added <strong>the ability to manage transcations</strong>, e.g., <strong>addt</strong>, <strong>editt</strong>, <strong>findt</strong>, <strong>listt</strong>, <strong>undot</strong>, <strong>cleart</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: Adding transaction will record a transaction and update the quantity and sales of the associated product. Editting a transaction will edit any attributes of a trancation as well as the quantity/sales attribute of the associate product, if necessary.
+Finding transaction filters transactions by attributes values, e.g. date time, customer name. Undoing transaction removes a transaction from the system and update the quantity and sales attribute of its product if affected. Listing transaciton shows all the transactions
+to the screen. Clearing transactions simply wipe out all the transactions in the system.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature allows the user to manage the inventory by recording transactinos. By adding a transaction, the system will reduce the quantity of certain products and increase the sales of them. By finding or listing a transaction,
+the user can view the specific transctions in certain date or purchased by certain person, or just all the transactions. By undoing or editing transactions, users have the ability to correct any mistakes he/she made. Lastly, users might want to
+clear all transactions only in rare cases, e.g. entering a new financial year or opening a new store.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Highlights: Adding/editting/undoing transactions will also update the quantity/sales attributes of related products. E.g. editing a transaction&#8217;s product will re-store the original product to its previous status and update the quantity &amp; sales of the new product.
+A future date time in the future is not allowed.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: These operations are inspired from the operations of persons in AB3 system.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>added the <strong>ability to plot the sales of a product in a certain time range</strong>.</p>
+<p>Added the <strong>ability to plot the quantity sold of a product in a certain time range</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The command fetches all transactions related with the specified product in a certain time period, then
+converts the data to daily time series format and plot it in a bar chart.</p>
+</li>
+<li>
+<p>Justification: This feature allows users to understand the popularity of a product visually in a trend format, such that they
+could make decisions of whether to stock up or down the product.</p>
+</li>
+<li>
+<p>Highlights: If a time range is not specified, the command will consider the last 7 days by default. An end date before start date or date in the future is not allowed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added the histogram of products to the statistics panel.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What is does: The two histograms are passivly displayed on the statistics panel, e.g. they are displayed upon the application is launched. It fetches the quantity and sales of all the products and group them by the amount of quantity/sales.
+The data is then plot besides the top selling product lists in a line chart format.</p>
+</li>
+<li>
+<p>Justification: It allows the user to understand whether the business is healthy, E.g. whether most of the products have sufficient inventory, is there any super-sales-creator or all the products share the same sales evenly.</p>
+</li>
+<li>
+<p>Highlights: The graph will be updated everytime a user takes any action, e.g. adding a new product.</p>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update the UI from three side-by-side lists to tab panes with transactions representated by rows in a table (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/186">#186</a>).</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Split the original shared quantity class to TransactionQuantity and ProductQuantity with different minimal values (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=YingxuH&amp;tabRepo=AY1920S2-CS2103-T09-2%2Fmain%5Bmaster%5D">tp-dashboard</a><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/model/transaction">model: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/model/util/Quantity.java">model/util: quantity</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/transaction">logic/command: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/commands/product/PlotSalesCommand.java">logic/command/product: PlotSalesCommand</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/transaction">logic/parser: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/parser/product/PlotSalesCommandParser.java">logic/parser/product: PlotSalesCommandParser</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/storage/transaction">storage: tranasction</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/transaction">ui: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/ui/PlotWindow.java">ui: PlotWindow</a>]</p>
+</li>
+<li>
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/model/transaction">test/model: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/testutil/transaction">test/testutil: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/commands/transaction">test/logic/commands: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/parser/transaction">test/logic/parser: transaction</a>,
+]</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -63,7 +138,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Set up the issue labels and milestones with my team mates.</p>
+</li>
+<li>
+<p>Managed releases <code>v1.3.1</code> on GitHub</p>
+</li>
+<li>
+<p>Merge PRs created by my team mates.</p>
+</li>
+<li>
+<p>Suggested the team to assign people to each issue and properly tag them with to milestones and PRs as required by the instruction.</p>
 </li>
 </ul>
 </div>
@@ -73,10 +157,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Refacotered the process of triggering notification windows from directly generating from the <code>AddTransactionCommand</code> to passing signals to command result and making the <code>MainWindow</code> to handle the plot.  (Commit <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192/commits/803fa013d1d0adc44434a7838fb45a145cf394bd">803fa01</a> of Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Fixed the problem of re-listing all products everytime adding a transaction (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/182">#182</a>)</p>
+</li>
+<li>
+<p>Fixed the problem of allowing users to input future time. (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/197">#197</a>)</p>
+</li>
+<li>
+<p>Refactored the process of checking duplicate input attributes (this <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209/commits/c841de096b6cfb0877416062adaa5770d868bb2c">commit</a> from Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209">#209</a>)</p>
 </li>
 </ul>
 </div>
@@ -86,7 +176,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated the readme from the template of AB3 to customized iTrackPro page (Pull request #)</p>
+</li>
+<li>
+<p>Updated the Dev Guide about managing transaction and plot sales command. (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/109">#109</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
+</li>
+<li>
+<p>Updated some explainatiions in User Guide (<a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
 </li>
 </ul>
 </div>
@@ -96,29 +192,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/58">#58</a>)</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reviewed the PRs and documentations from other teams in the tutorial together with my team mates(examples:  <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/104">#104</a>, <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/42">#42</a>, <a href="https://github.com">3</a>)</p>
 </li>
 </ul>
 </div>
@@ -127,9 +204,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -146,6 +220,129 @@
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="plotting-sales-of-a-product-code-plotsales-code"><a class="link" href="#plotting-sales-of-a-product-code-plotsales-code">Plotting sales of a product: <code>plotsales</code></a></h4>
+<div class="paragraph">
+<p>Plots a graph with the sales of the selected product in a given time period.<br>
+Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
+</li>
+<li>
+<p>The start date must be before or equal to end date</p>
+</li>
+<li>
+<p>At least one product must be present</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The start date and end date attributes are optional. If omitted, the system
+will plot the last 7 days by default.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plotsales 1 sd/2020-02-20 10:00 ed/2020-02-28 10:01</code><br>
+Plots a graph with the sales of the selected product between 20th Feb 10am and 28th Feb 10:01am in 2020.</p>
+</li>
+<li>
+<p><code>plotsales 1</code><br>
+Plots a graph with the sales of the selected product in the past week.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SalesPlot.png" alt="SalesPlot" width="500">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-a-transaction-code-undot-code"><a class="link" href="#undo-a-transaction-code-undot-code">Undo a transaction : <code>undot</code></a></h4>
+<div class="paragraph">
+<p>Undo the specified transaction from the system. It allows the user to remove a transaction in case he/she keyed inaccurate
+information.<br>
+Format: <code>undot INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Undos the transaction at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed transaction list.</p>
+</li>
+<li>
+<p>The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Why undot instead of deletet? Deletet implies that transaction is only deleted but undot is more fitting as the product details will be modified too.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Adds the quantity in the transaction back to the product and reduces the sales of the product by transaction amount.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listt</code><br>
+<code>undot 2</code><br>
+Undo the 2nd transaction in the displayed list.</p>
+</li>
+<li>
+<p><code>findt dt/2020-01-03 16:00</code><br>
+<code>undot 1</code><br>
+Undo the 1st transaction in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,14 +358,212 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="add-edit-undo-list-find-a-href-transaction-transactions-a"><a class="link" href="#add-edit-undo-list-find-a-href-transaction-transactions-a">Add/edit/undo/list/find <a href="#transaction">transactions</a></a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The user input is handled by the <code>MainWindow</code> class in Ui first, then passed to the <code>LogicManager</code> and parsed into
+<code>AddTransactionCommand</code>, <code>EditTransactionCommand</code>, etc. Depending on the nature of each command, new transaction or
+updated transaction will be added to a new index or existing index of the <code>UniqueTransactionList</code>, hosted by the
+<code>InventorySystem</code> class. For the <code>deleteTransactionCommand</code>, a transaction will be dropped from the <code>internalList</code>.
+Since the <code>quantity</code> and <code>sales</code> attribute will affect the same attributes of a product, the affiliated <code>product</code> will
+also be edited. In the end, the <code>filteredTransactionList</code> of the system will be updated so that the user can view the change
+accordingly. For the list and find transction commands, the filteredTransactionList will be updated for the UI to interact with users.
+One command is implemented for each operations in the logic module:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddTransactionCommand</code>&#8201;&#8212;&#8201;Adds a transaction into the system and update the the quantity and sales attribute
+of the corresponding product.</p>
+</li>
+<li>
+<p><code>EditTransactionCommand</code>&#8201;&#8212;&#8201;Edit details of a transaction. If <code>quantity</code> is changed, edit the affected product
+as well.</p>
+</li>
+<li>
+<p><code>UndoTransactionCommand</code>&#8201;&#8212;&#8201;Undo a transaction from the system and edit the affiliated product.</p>
+</li>
+<li>
+<p><code>ListTransactionCommand</code>&#8201;&#8212;&#8201;List all the transaction in the system.</p>
+</li>
+<li>
+<p><code>FindTransactionCommand</code>&#8201;&#8212;&#8201;Find certain transactions by keywords.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For each command, a parser is implemented to parse the input into arguments.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddTransactionCommmandParser</code>&#8201;&#8212;&#8201;Parse the add transaction input and generates <code>AddTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>EditTransactionCommandParser</code>&#8201;&#8212;&#8201;Parse the edit transaction input and generates <code>EditTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>UndoTransactionCommandParser</code> --Parse the undo transaction input and generates <code>UndoTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>ListTransactionCommandParser</code> --Parse the list transaction input and generates <code>ListTransactionCommand</code>.<br></p>
+</li>
+<li>
+<p><code>FindTransactionCommandParser</code> --Parse the find transaction input and generates <code>FindTransactionCommand</code>.<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how each operation works.</p>
+</div>
+<div class="paragraph">
+<p>AddTransaction Operation:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddTransactionSequenceDiagram.png" alt="AddTransactionSequenceDiagram">
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:39:59 UTC</div></div></div></body></html>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The AddTransactionCommmandParser returns a transactionFacotry with <code>productIndex</code> and <code>customerIndex</code>, while a
+transaction is only generated in AddTransactionCommand.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>EditTransaction Operation:</p>
+</div>
+<div class="paragraph">
+<p>Unlike the edit operation of customer and products, editting transaction will trigger another operation of
+editting its associated product with the new quantity and money. If its product is editted, its quantity will be added back
+to the original product&#8217;s quantity, and the new quantity will be deducted from the quantity of the newly referenced product. The update on sales object will
+be done in the reverse way. In the end, the new transction and product will replace the old ones in the system.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditTransactionSequenceDiagram.png" alt="EditTransactionSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>UndoTransaction Operation:</p>
+</div>
+<div class="paragraph">
+<p>Undoing a transaction will add back its quantity to teh associated product and remove its amount of money from the
+sales of that product.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoTransactionSequenceDiagram.png" alt="UndoTransactionSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>ListTransaction/FindTransaction Operation:</p>
+</div>
+<div class="paragraph">
+<p>The list operation for transaction is the same as that for products and customers.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-product-customer-in-transaction"><a class="link" href="#aspect-how-to-store-product-customer-in-transaction">Aspect: How to store product &amp; customer in transaction.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store an unique id and name of the product/ customer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not need to update transaction while product is editted.</p>
+</li>
+<li>
+<p>Cons: More complex when displaying the customer/product information in UI. Needs to query model whenver
+the system needs to calcualte statistics related with product and transactions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (previous choice):</strong> Store the product/ customer instance as an attribute.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to construct a transaction and display product/ customer name.</p>
+</li>
+<li>
+<p>Cons: Easy to generate bugs while any of the instance is editted. Needs to update the product in transaction when a product
+is editted.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-change-the-quantity-sales-attribute-of-product-while-editing-transactions"><a class="link" href="#aspect-how-to-change-the-quantity-sales-attribute-of-product-while-editing-transactions">Aspect: How to change the quantity &amp; sales attribute of product while editing transactions.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> If quantity/ product is changed, check validation first,
+re-store the quantity &amp; sales of the original product, and then
+and update the quantity &amp; sales of the new product.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Straightforward logic, not likely to create bugs.</p>
+</li>
+<li>
+<p>Cons: Validation checking would be very complex.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (previous choice):</strong> If quantity/ product is changed,
+re-store the quantity &amp; sales of the original product, check validation
+(whether the product has that much inventory as required on transaction), and then
+and update the quantity &amp; sales of the new product.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Likely to generate bugs when the new quantity exceeds inventory, i.e. the edit operation is not valid.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="plot-the-quantity-sold-of-a-product"><a class="link" href="#plot-the-quantity-sold-of-a-product">Plot the quantity sold of a product</a></h3>
+<div class="paragraph">
+<p>The plot sales command is facilitated by <code>InventorySystemParser</code>.
+First, the InventorySystemParser class parses the user command.
+Then the <code>PlotSalesCommandParser</code> parses the user input arguments into the index of the product,
+the <code>start date</code>, and the <code>end date</code>.
+The generated <code>PlotSalesCommand</code> is executed by the LogicManager.
+The command execution generates a daily time sequence and calcualte the quantity sold on each day by querying all the
+related transactions. The time series data and the signal of displaying the sales graph is then encapsulated
+as a CommandResult object which is passed back to the Ui.</p>
+</div>
+<div class="paragraph">
+<p>The following sequnce diagram shos how the plot sale operation works:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/PlotSalesSequenceDiagram.png" alt="PlotSalesSequenceDiagram"></span></p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 18:01:04 UTC</div></div></div></body></html>
