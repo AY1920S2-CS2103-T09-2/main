@@ -27,8 +27,9 @@
 <li><a href="#get-a-href-revenue-revenue-a-a-href-profit-profit-a-feature">3.3. Get <a href="#revenue">revenue</a>/<a href="#profit">profit</a> feature</a></li>
 <li><a href="#setting-low-limit-threshold-to-receive-notifications-for-products">3.4. Setting low limit threshold to receive notifications for products</a></li>
 <li><a href="#notification-window-for-products">3.5. Notification window for products</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#sorting-of-product-list">3.6. Sorting of Product List</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -793,8 +794,8 @@ The result of the command execution is encapsulated as a CommandResult object wh
 <div class="sect2">
 <h3 id="notification-window-for-products"><a class="link" href="#notification-window-for-products">3.5. Notification window for products</a></h3>
 <div class="paragraph">
-<p>The notification window appears whenever an product&#8217;s quantity reaches the threshold that was set.<br>
-The notification comes with information such as the product&#8217;s description and remaining quantity left.</p>
+<p>The notification window appears whenever an product&#8217;s quantity reaches the threshold that was set.
+It comes with information such as the product&#8217;s description and remaining quantity left.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows how the operation works:</p>
@@ -840,14 +841,69 @@ The notification comes with information such as the product&#8217;s description 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="sorting-of-product-list"><a class="link" href="#sorting-of-product-list">3.6. Sorting of Product List</a></h3>
+<div class="paragraph">
+<p>The product list sorts by the progress bar indicator beside each product&#8217;s description whenever user enters <code>listp</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>An example is shown below:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/SortingExample.png" alt="SortingExample"></span></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the operation works:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/SortProductListActivityDiagram.png" alt="SortProductListActivityDiagram"></span></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-when-to-sort-the-product-list"><a class="link" href="#aspect-when-to-sort-the-product-list">Aspect: When to sort the product list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Sorts only when user uses <code>listp</code> function.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive and user friendly.</p>
+</li>
+<li>
+<p>Cons: Might be hard to track products' remaining balance without listing all the products.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Sorts whenever the product list is updated.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to track products' remaining balance.</p>
+</li>
+<li>
+<p>Cons: Might be confusing for user as the indexes for product will change as the product list is sorted automatically,
+resulting in user to recheck products' index before entering in commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -878,7 +934,7 @@ The notification comes with information such as the product&#8217;s description 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2266,4 +2322,4 @@ The calculations were relatively easier as it was just simple math calculations 
 <p>In all, even though our project was complex, we managed to implement most of our features and even included extra features that we had not plan on intially. Given the moderate to high difficulty level of the project, we are glad that we achieved our project goals.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:47:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:21:35 UTC</div></div></div></body></html>
