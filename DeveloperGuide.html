@@ -145,7 +145,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram" width="700">
 </div>
 <div class="title">Figure 3. Component interactions for <code>deletep 1</code> command</div>
 </div>
@@ -282,7 +282,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory System</code>, which <code>Customer</code> can reference. This would allow <code>Inventory System</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Customer</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram" width="600"></span>
 </td>
 </tr>
 </table>
@@ -292,7 +292,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory Sys
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
@@ -1616,7 +1616,7 @@ Expected: Customer with given attributes is added to list. Details of the added 
 </li>
 <li>
 <p>Prerequisites: the following command already has been executed once already<br>
-Test case: <code>addc n/John p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney</code><br>
+Test case: <code>addc n/John p/98765432</code><br>
 Expected: No customer is added as duplicate customers are not allowed. Error details shown in the status message.</p>
 </li>
 <li>
@@ -2240,22 +2240,22 @@ Expected: Similar to previous.</p>
 <h2 id="effort"><a class="link" href="#effort">Appendix G: Effort</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Throughout this journey, we have overcame many challenges and gain much more experience in software engineering.
+<p>Throughout this journey, we have overcame many challenges and gained much more experience in software engineering.
 Our project was ambitious as it consisted of multiple entities. In addition to the original address book with the persons entity, we also included products and transactions to the system.
 Since the structure was quite complex, we had to brainstorm about the best way to incorporate products and transactions into the app.</p>
 </div>
 <div class="paragraph">
 <p>The person class had to be refactored to fit our user profile of customers.
 The commands for products were similar to the original commands for person, however there were also some differences since the requirements for products and persons varied.
-For example, the attributes required for products are vastly different for customers, and new restrictions will need to be applied too.
+For example, the attributes required for products were vastly different for customers, and new restrictions needed to be applied.
 The commands for transactions were quite different from both customers and products, since transaction is an association class between customer and product.
-For example, the add transaction command affects the product quantity and sales, so it will have to update the product too, whereas for customer and product there is no need to modify other classes.
+For example, the add transaction command affected the product quantity and sales, so it had to update the product too, whereas for customer and product there was no need to modify other classes.
 We also needed to consider the proper way to keep track of customers and products to ensure that there were no duplicates. Initially we tried keeping track using only the attributes however there were bugs so we added customer and product ids.</p>
 </div>
 <div class="paragraph">
-<p>With multiple entities, a lot of thought process went into figuring out how to display all the data.
-Throughout the process, we revamped the ui such that all the information would be presented clearly. Ultimately, our design differed quite a lot from the original as we settled on a tab design.
-Initially, there were different windows showing different information too. In the end, we combined most of the information into a single window, and split the information shown according to categories which are listed as tabs.
+<p>With multiple entities, a lot of thought went into figuring out how to display all the data.
+Throughout the process, we revamped the ui such that all the information would be presented clearly. Ultimately, our design differed from the original as we settled on a tab design.
+Initially, there were different windows showing different information too. In the end, we combined most of the information into a single window, and split the information shown according to categories which were listed as tabs.
 Besides the layout of the ui, the design also took time to finalise as we wanted to make our app look professional and modern.</p>
 </div>
 <div class="paragraph">
@@ -2266,4 +2266,4 @@ The calculations were relatively easier as it was just simple math calculations 
 <p>In all, even though our project was complex, we managed to implement most of our features and even included extra features that we had not plan on intially. Given the moderate to high difficulty level of the project, we are glad that we achieved our project goals.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 18:54:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:37:50 UTC</div></div></div></body></html>
