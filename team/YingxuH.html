@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>iTrack Pro is for the grocery shop owners to keep track of the products, customers, and transactions of the shop and have a better understanding of the business by viewing the performance of products and behaviors of customers. It is also able to provide an analysis of the entire business to help the owner manage the shop.</p>
+<p>iTrack Pro is for the grocery shop owners to keep track of the products, customers, and transactions of the shop and have a better understanding of the business by viewing the performance of products and behaviors of customers.</p>
 </div>
 </div>
 </div>
@@ -28,18 +28,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Adding transaction will record a transaction and update the quantity and sales of the associated product. Editting a transaction will edit any attributes of a trancation as well as the quantity/sales attribute of the associate product, if necessary.
-Finding transaction filters transactions by attributes values, e.g. date time, customer name. Undoing transaction removes a transaction from the system and update the quantity and sales attribute of its product if affected. Listing transaciton shows all the transactions
-to the screen. Clearing transactions simply wipe out all the transactions in the system.</p>
+<p>What it does: It records, edits, lists, finds, deletes transactions from the system. The quantity and sales attribute of products will be affected as well.</p>
 </li>
 <li>
-<p>Justification: This feature allows the user to manage the inventory by recording transactinos. By adding a transaction, the system will reduce the quantity of certain products and increase the sales of them. By finding or listing a transaction,
-the user can view the specific transctions in certain date or purchased by certain person, or just all the transactions. By undoing or editing transactions, users have the ability to correct any mistakes he/she made. Lastly, users might want to
-clear all transactions only in rare cases, e.g. entering a new financial year or opening a new store.</p>
+<p>Justification: This feature allows the customer to manage a large amount of transactions. It improves the usability of the application and increases the efficiency for the user to manage inventory system.</p>
 </li>
 <li>
-<p>Highlights: Adding/editting/undoing transactions will also update the quantity/sales attributes of related products. E.g. editing a transaction&#8217;s product will re-store the original product to its previous status and update the quantity &amp; sales of the new product.
-A future date time in the future is not allowed.</p>
+<p>Highlights: Adding/editting/undoing transactions will also update the quantity/sales attributes of related products. A future date time in the future is not allowed.</p>
 </li>
 <li>
 <p>Credits: These operations are inspired from the operations of persons in AB3 system.</p>
@@ -70,14 +65,14 @@ could make decisions of whether to stock up or down the product.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What is does: The two histograms are passivly displayed on the statistics panel, e.g. they are displayed upon the application is launched. It fetches the quantity and sales of all the products and group them by the amount of quantity/sales.
-The data is then plot besides the top selling product lists in a line chart format.</p>
+<p>What is does: It fetches the quantity and sales of all the products and group them by the amount of quantity/sales.
+The data is then plot in a line chart format.</p>
 </li>
 <li>
 <p>Justification: It allows the user to understand whether the business is healthy, E.g. whether most of the products have sufficient inventory, is there any super-sales-creator or all the products share the same sales evenly.</p>
 </li>
 <li>
-<p>Highlights: The graph will be updated everytime a user takes any action, e.g. adding a new product.</p>
+<p>Highlights: They are displayed upon the application is launched. The graph will be updated everytime a user takes any action, e.g. adding a new product.</p>
 </li>
 </ul>
 </div>
@@ -93,7 +88,14 @@ The data is then plot besides the top selling product lists in a line chart form
 <p>Update the UI from three side-by-side lists to tab panes with transactions representated by rows in a table (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/186">#186</a>).</p>
 </li>
 <li>
-<p>Split the original shared quantity class to TransactionQuantity and ProductQuantity with different minimal values (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>).</p>
+<p>Split the original shared quantity class to TransactionQuantity and ProductQuantity with different minimal values. Merged sales and money class (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/117">#117</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>).</p>
+</li>
+<li>
+<p>Set default dateTime and money for transactions (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/117">#117</a>).</p>
+</li>
+<li>
+<p>Added test for transaction model, logic, and test utils (PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209">#209</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/201">#201</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/197">#197</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/183">#183</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/140">#140</a>).</p>
 </li>
 </ul>
 </div>
@@ -103,27 +105,25 @@ The data is then plot besides the top selling product lists in a line chart form
 <div class="ulist">
 <ul>
 <li>
-<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/model/transaction">model: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/model/util/Quantity.java">model/util: quantity</a>]</p>
+<p>Model: [<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/model/transaction">transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/model/util/Quantity.java">util: quantity</a>]</p>
 </li>
 <li>
-<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/transaction">logic/command: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/commands/product/PlotSalesCommand.java">logic/command/product: PlotSalesCommand</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/transaction">logic/parser: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/parser/product/PlotSalesCommandParser.java">logic/parser/product: PlotSalesCommandParser</a>]</p>
+<p>Logic: [<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/commands/transaction">command: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/commands/product/PlotSalesCommand.java">command: PlotSales</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/logic/parser/transaction">parser: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/logic/parser/product/PlotSalesCommandParser.java">parser: PlotSales</a>]</p>
 </li>
 <li>
-<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/storage/transaction">storage: tranasction</a>]</p>
-</li>
-<li>
-<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/transaction">ui: transaction</a>,
+<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/storage/transaction">storage: tranasction</a>,
+[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/main/java/seedu/address/ui/transaction">ui: transaction</a>,
 <a href="https://github.com/AY1920S2-CS2103-T09-2/main/blob/master/src/main/java/seedu/address/ui/PlotWindow.java">ui: PlotWindow</a>]</p>
 </li>
 <li>
-<p>[<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/model/transaction">test/model: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/testutil/transaction">test/testutil: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/commands/transaction">test/logic/commands: transaction</a>,
-<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/parser/transaction">test/logic/parser: transaction</a>,
+<p>Test: [<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/model/transaction">model: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/testutil/transaction">testutil: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/commands/transaction">commands: transaction</a>,
+<a href="https://github.com/AY1920S2-CS2103-T09-2/main/tree/master/src/test/java/seedu/address/logic/parser/transaction">parser: transaction</a>,
 ]</p>
 </li>
 </ul>
@@ -141,13 +141,10 @@ The data is then plot besides the top selling product lists in a line chart form
 <p>Set up the issue labels and milestones with my team mates.</p>
 </li>
 <li>
-<p>Managed releases <code>v1.3.1</code> on GitHub</p>
+<p>Set up <code>netlify</code>, <code>coverall</code>, auto-build tools (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/17">#17</a>)</p>
 </li>
 <li>
 <p>Merge PRs created by my team mates.</p>
-</li>
-<li>
-<p>Suggested the team to assign people to each issue and properly tag them with to milestones and PRs as required by the instruction.</p>
 </li>
 </ul>
 </div>
@@ -157,16 +154,13 @@ The data is then plot besides the top selling product lists in a line chart form
 <div class="ulist">
 <ul>
 <li>
-<p>Refacotered the process of triggering notification windows from directly generating from the <code>AddTransactionCommand</code> to passing signals to command result and making the <code>MainWindow</code> to handle the plot.  (Commit <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192/commits/803fa013d1d0adc44434a7838fb45a145cf394bd">803fa01</a> of Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>)</p>
+<p>Refactored the process of triggering notification windows as passing signals to command result and making the <code>MainWindow</code> to handle the plot.  (Commit <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192/commits/803fa013d1d0adc44434a7838fb45a145cf394bd">803fa01</a> of PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/192">#192</a>)</p>
 </li>
 <li>
-<p>Fixed the problem of re-listing all products everytime adding a transaction (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/182">#182</a>)</p>
+<p>Refactored the process of checking duplicate input attributes (this <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209/commits/c841de096b6cfb0877416062adaa5770d868bb2c">commit</a> from PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209">#209</a>)</p>
 </li>
 <li>
-<p>Fixed the problem of allowing users to input future time. (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/197">#197</a>)</p>
-</li>
-<li>
-<p>Refactored the process of checking duplicate input attributes (this <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209/commits/c841de096b6cfb0877416062adaa5770d868bb2c">commit</a> from Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/209">#209</a>)</p>
+<p>Fixed the bug of re-listing all products everytime adding a transaction, allowing users to input future time, and statistics window not updated after each action (PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/182">#182</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/197">#197</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/134">#134</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/186">#186</a>)</p>
 </li>
 </ul>
 </div>
@@ -176,13 +170,16 @@ The data is then plot besides the top selling product lists in a line chart form
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the readme from the template of AB3 to customized iTrackPro page (Pull request #)</p>
+<p>Updated the readme from the template of AB3 to customized iTrackPro page (PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/12">#12</a>)</p>
 </li>
 <li>
-<p>Updated the Dev Guide about managing transaction and plot sales command. (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/109">#109</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
+<p>Updated the UG with add/edit/delete/find/list transactions as well as top-selling product, revenue, and low inventory (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/27">#27</a>)</p>
 </li>
 <li>
-<p>Updated some explainatiions in User Guide (<a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
+<p>Updated the UG about the plotsales command, renaming <code>deletet</code> to <code>undot</code>, re-phrase some explanations (Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/135">#135</a>, Pull request <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/137">#137</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
+</li>
+<li>
+<p>Updated the Dev Guide with NFR, Glossary, managing transaction and plot sales command. (PR <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/21">#21</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/109">#109</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/107">#107</a>, <a href="https://github.com/AY1920S2-CS2103-T09-2/main/pull/212">#212</a>)</p>
 </li>
 </ul>
 </div>
@@ -195,7 +192,7 @@ The data is then plot besides the top selling product lists in a line chart form
 <p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/58">#58</a>)</p>
 </li>
 <li>
-<p>Reviewed the PRs and documentations from other teams in the tutorial together with my team mates(examples:  <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/104">#104</a>, <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/42">#42</a>, <a href="https://github.com">3</a>)</p>
+<p>Reviewed the PRs and documentations from other teams in the tutorial together with my team mates(examples:  <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/104">#104</a>, <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/42">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -221,23 +218,34 @@ The data is then plot besides the top selling product lists in a line chart form
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="plotting-sales-of-a-product-code-plotsales-code"><a class="link" href="#plotting-sales-of-a-product-code-plotsales-code">Plotting sales of a product: <code>plotsales</code></a></h4>
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
-<p>Plots a graph with the sales of the selected product in a given time period.<br>
-Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
+<p>Format: <code>help</code>
+View the user guide page in a pop-out window.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-transaction-code-addt-code"><a class="link" href="#adding-a-transaction-code-addt-code">Adding a transaction : <code>addt</code></a></h4>
+<div class="paragraph">
+<p>Adds a specified transaction to the system.<br>
+Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY] [d/DESCRIPTION]</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The start date and end date must follow a format of <code>yyyy-mm-dd hh:mm</code></p>
+<p>Duplicate transactions (with the same customer, product, datetime) are not allowed.<br></p>
 </li>
 <li>
-<p>The start date must be before or equal to end date</p>
+<p>The quantity and money fields can take integers up to 1000000.<br></p>
 </li>
 <li>
-<p>At least one product must be present</p>
+<p>The quantity must be at least 1.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the quantity field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -250,65 +258,11 @@ Format: <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The start date and end date attributes are optional. If omitted, the system
-will plot the last 7 days by default.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>plotsales 1 sd/2020-02-20 10:00 ed/2020-02-28 10:01</code><br>
-Plots a graph with the sales of the selected product between 20th Feb 10am and 28th Feb 10:01am in 2020.</p>
-</li>
-<li>
-<p><code>plotsales 1</code><br>
-Plots a graph with the sales of the selected product in the past week.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/SalesPlot.png" alt="SalesPlot" width="500">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="undo-a-transaction-code-undot-code"><a class="link" href="#undo-a-transaction-code-undot-code">Undo a transaction : <code>undot</code></a></h4>
-<div class="paragraph">
-<p>Undo the specified transaction from the system. It allows the user to remove a transaction in case he/she keyed inaccurate
-information.<br>
-Format: <code>undot INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Undos the transaction at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed transaction list.</p>
-</li>
-<li>
-<p>The index must be a positive integer 1, 2, 3, …​</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Why undot instead of deletet? Deletet implies that transaction is only deleted but undot is more fitting as the product details will be modified too.
+The date time field [dt/] is optional, and will be recorded as current local machine time if left empty.<br>
+The money field [m/] is optional, and will be recorded as product price multiplied by quantity if left empty.
+Only need to enter if necessary (i.e. discounts on products).<br>
+The description field [d/] is optional, will be recorded as N/A if left empty.
+Only need to enter if user wants to add notes to the transaction.
 </td>
 </tr>
 </table>
@@ -320,7 +274,84 @@ Why undot instead of deletet? Deletet implies that transaction is only deleted b
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Adds the quantity in the transaction back to the product and reduces the sales of the product by transaction amount.
+Adding transaction will update the quantity and sales of its associated product as well.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AddTransaction.png" alt="AddTransaction" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>After adding transactions, the transaction list can be viewed under the transaction tab.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AddTransaction2.png" alt="AddTransaction2" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addt p/1 c/10 dt/2020-02-19 19:00 q/10 m/20</code><br>
+Adds a transaction, where the 10th customer bought 10 of the 1st product for $20 at 2020-02-19 19:00.</p>
+</li>
+<li>
+<p><code>addt p/20 c/2 dt/2020-02-20 10:00 q/10 m/30 d/under discount</code><br>
+Adds a transaction, where the 2nd customer bought 10 of the 20th product for $30 at 2020-02-20 10:00 at an discount.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-transactions-code-listt-code"><a class="link" href="#listing-all-transactions-code-listt-code">Listing all transactions : <code>listt</code></a></h4>
+<div class="paragraph">
+<p>Lists all the transactions.<br>
+Format: <code>listt</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-transaction-code-editt-code"><a class="link" href="#editing-a-transaction-code-editt-code">Editing a transaction : <code>editt</code></a></h4>
+<div class="paragraph">
+<p>Edits a transaction in the system. It allows the user to edit wrong transction
+ with correct information.<br>
+Format: <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the transaction at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed transaction list. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the quantity field for more
+than one time.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Editting the quantity or money of a transaction will update the quantity and sales
+of its associated product as well.
 </td>
 </tr>
 </table>
@@ -331,17 +362,216 @@ Adds the quantity in the transaction back to the product and reduces the sales o
 <div class="ulist">
 <ul>
 <li>
-<p><code>listt</code><br>
-<code>undot 2</code><br>
-Undo the 2nd transaction in the displayed list.</p>
-</li>
-<li>
-<p><code>findt dt/2020-01-03 16:00</code><br>
-<code>undot 1</code><br>
-Undo the 1st transaction in the results of the find command.</p>
+<p><code>editt 1 p/101 c/123</code><br>
+Edits the product id and customer id of the 1st transaction to be 101 and 123 respectively.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="finding-transactions-code-findt-code"><a class="link" href="#finding-transactions-code-findt-code">Finding transactions : <code>findt</code></a></h4>
+<div class="paragraph">
+<p>Finds transactions whose attributes match the given attributes.<br>
+Format: <code>findt [p/PRODUCT_NAME [PRODUCT_NAME]&#8230;&#8203;] [c/CUSTOMER_NAME [CUSTOMER_NAME]&#8230;&#8203;] [dt/DATE_TIME] [m/MONEY]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g blue will match Blue</p>
+</li>
+<li>
+<p>At least one of the option fields must be provided.</p>
+</li>
+<li>
+<p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, c/Bob m/31 will match m/31 c/Bob.</p>
+</li>
+<li>
+<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and 'bag' in their product names.</p>
+</li>
+<li>
+<p>Transactions matching any keywords in an attribute (for product or customer name only) will be returned (i.e. OR search) e.g. <code>findt c/jane avery</code> will return transactions with 'jane' or 'avery' in their customer names.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the <code>DATE_TIME</code> field for more
+than one time.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FindTransactionByProduct.png" alt="FindTransactionByProduct" width="790">
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FindTransactionByCustomer.png" alt="FindTransactionByCustomer" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only product name and customer name support multiple keywords
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findt p/iphone</code><br>
+Returns all transactions that involve the product <code>iphone</code>.</p>
+</li>
+<li>
+<p><code>findt c/bob angie</code><br>
+Returns all transactions that involve a customer named Bob <strong>OR</strong> a customer named Angie.</p>
+</li>
+<li>
+<p><code>findt dt/2020-02-07 16:00</code><br>
+Returns all transactions made on 7th February 2020 4pm.</p>
+</li>
+<li>
+<p><code>findt m/100</code><br>
+Returns all transactions that have an amount of 100 dollars.</p>
+</li>
+<li>
+<p><code>findt c/bob dt/2020-02-07 16:00</code><br>
+Returns all transactions that Bob made on the 7th February 2020 4pm.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-transactions-code-cleart-code"><a class="link" href="#clearing-all-transactions-code-cleart-code">Clearing all transactions : <code>cleart</code></a></h4>
+<div class="paragraph">
+<p>Clears all transactions from the list of transactions.<br>
+Format: <code>cleart</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Permanently deletes all the stored transaction data in the application.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adding customer</strong> : <code>addc n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…</code><br>
+e.g. <code>addc n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+</li>
+<li>
+<p><strong>Listing all customers</strong> : <code>listc</code></p>
+</li>
+<li>
+<p><strong>Editing customer information</strong> : <code>editc INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​</code><br>
+e.g. <code>editc 1 p/91234567 e/johndoe@example.com</code></p>
+</li>
+<li>
+<p><strong>Finding customers</strong> : <code>findc [n/NAME [NAME]&#8230;&#8203;] [p/PHONE] [e/EMAIL] [a/ADDRESS [ADDRESS]&#8230;&#8203;]</code><br>
+e.g. <code>findc n/John</code></p>
+</li>
+<li>
+<p><strong>Deleting a customer</strong> : <code>deletec INDEX</code><br>
+e.g. <code>findc n/Betsy</code><br>
+<code>deletec 1</code></p>
+</li>
+<li>
+<p><strong>Clearing all customers</strong> : <code>clearc</code></p>
+</li>
+<li>
+<p><strong>Adding a product</strong> : <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</code><br>
+e.g. <code>addp d/iphone x pr/1000 cp/800 q/10</code></p>
+</li>
+<li>
+<p><strong>Listing all products</strong> : <code>listp</code></p>
+</li>
+<li>
+<p><strong>Editing a product</strong> : <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [cp/COSTPRICE] [q/QUANTITY] [s/SALES]</code><br>
+e.g. <code>editp 1 pr/1150 q/80</code></p>
+</li>
+<li>
+<p><strong>Finding products</strong> : <code>findp KEYWORD [KEYWORD]&#8230;&#8203;</code><br>
+e.g. <code>findp black</code></p>
+</li>
+<li>
+<p><strong>Deleting a product</strong> : <code>deletep INDEX</code><br>
+e.g. <code>listp</code><br>
+<code>deletep 2</code></p>
+</li>
+<li>
+<p><strong>Clearing all products</strong> : <code>clearp</code></p>
+</li>
+<li>
+<p><strong>Adding a transaction</strong> : <code>addt p/PRODUCT_ID c/CUSTOMER_ID dt/DATE_TIME m/MONEY q/QUANTITY [d/DESCRIPTION]</code><br>
+e.g. <code>addt p/20 c/2 dt/2020-02-20 10:00 m/30 q/10 d/under discount</code></p>
+</li>
+<li>
+<p><strong>Listing all transactions</strong> : <code>listt</code></p>
+</li>
+<li>
+<p><strong>Editing a transaction</strong> : <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANTITY] [m/MONEY] [d/DESCRIPTION]</code><br>
+e.g. <code>editt 1 p/101 c/123</code></p>
+</li>
+<li>
+<p><strong>Finding transactions</strong> : <code>findt [p/PRODUCT_NAME [PRODUCT_NAME]&#8230;&#8203;] [c/CUSTOMER_NAME [CUSTOMER_NAME]&#8230;&#8203;] [dt/DATE_TIME] [m/MONEY]</code><br>
+e.g. <code>findt c/bob dt/2020-02-07 10:00</code></p>
+</li>
+<li>
+<p><strong>Undo a transaction</strong> : <code>undot INDEX</code><br>
+e.g. <code>findt dt/2020-01-03 10:00</code><br>
+<code>undot 1</code></p>
+</li>
+<li>
+<p><strong>Clearing all transactions</strong> : <code>cleart</code></p>
+</li>
+<li>
+<p><strong>Get the revenue made in a certain period</strong> : <code>revenue sd/START_DATE ed/END_DATE</code><br>
+e.g. <code>revenue sd/2020-01-01 10:00 ed/2020-12-12 10:01</code></p>
+</li>
+<li>
+<p><strong>Get the profit made in a certain period</strong> : <code>profit sd/START_DATE ed/END_DATE</code><br>
+e.g. <code>profit sd/2020-01-01 10:00 ed/2020-12-12 10:01</code></p>
+</li>
+<li>
+<p><strong>Setting the low-inventory threshold</strong> : <code>lowlimit p/PRODUCT_ID t/THRESHOLD</code><br>
+e.g. <code>lowlimit p/1 t/20</code></p>
+</li>
+<li>
+<p><strong>Predicting the sales for the next month</strong> : <code>predict</code></p>
+</li>
+<li>
+<p><strong>Plotting sales</strong> : <code>plotsales PRODUCT_INDEX [sd/START_DATE] [ed/END_DATE]</code><br>
+e.g. <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-03-30 10:00</code></p>
+</li>
+<li>
+<p><strong>Exiting from the program</strong> : <code>exit</code></p>
+</li>
+<li>
+<p><strong>Get help</strong> : <code>help</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -564,6 +794,40 @@ as a CommandResult object which is passed back to the Ui.</p>
 <div class="paragraph">
 <p><span class="image"><img src="../images/PlotSalesSequenceDiagram.png" alt="PlotSalesSequenceDiagram"></span></p>
 </div>
+<h3 id="use-case-uc09-plot-the-quantity-sold-of-a-product-for-products" class="discrete">Use case:  UC09 - Plot the quantity sold of a product (for products)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the index of the product as well as the start date and end date for ploting purposes.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The index is out of boundary.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The app shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 18:01:04 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 19:28:33 UTC</div></div></div></body></html>
