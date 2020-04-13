@@ -217,7 +217,11 @@ Format: <code>addc n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…</code>
 <p>The phone field can be between 3 to 15 characters long and contain only integers.<br></p>
 </li>
 <li>
-<p>The  email field can take up to 40 characters and should be a valid email format.</p>
+<p>The  email field can take up to 40 characters and should be a valid email format.<br></p>
+</li>
+<li>
+<p>Duplicate fields, except tags, are not allowed. E.g. keying in the email field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -274,6 +278,10 @@ Format: <code>editc INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​
 </li>
 <li>
 <p>You can remove all the customer’s tags by typing t/ without specifying any tags after it.</p>
+</li>
+<li>
+<p>Duplicate fields, except tags, are not allowed. E.g. keying in the email field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -430,10 +438,10 @@ This is to help the user easier to know which products are running low on stock.
 </td>
 <td class="content">
 This is a passive feature.<br>
-Green: &gt;0.6<br>
-Yellow: 0.6<br>
-Orange: 0.4<br>
-Red: 0.2
+Green: stock &gt; 60%<br>
+Yellow: 40% &lt; stock &lt; 60%<br>
+Orange: 20% &lt; stock &lt; 40%<br>
+Red: stock &lt; 20%
 </td>
 </tr>
 </table>
@@ -494,7 +502,7 @@ The history is deleted after application closes.
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="setting-low-limit-threshold-to-receive-notifications-for-products"><a class="link" href="#setting-low-limit-threshold-to-receive-notifications-for-products">Setting low limit threshold to receive notifications for products</a></h3>
+<h3 id="set-low-limit-threshold-to-receive-notifications-for-products"><a class="link" href="#set-low-limit-threshold-to-receive-notifications-for-products">Set low limit threshold to receive notifications for products</a></h3>
 <div class="paragraph">
 <p>The low limit mechanism is facilitated by <code>InventorySystemParser</code>.
 First, the InventorySystemParser class parses the user command.
@@ -599,7 +607,7 @@ It comes with information such as the product&#8217;s description and remaining 
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-of-product-list"><a class="link" href="#sorting-of-product-list">Sorting of Product List</a></h3>
+<h3 id="sort-product-list"><a class="link" href="#sort-product-list">Sort Product List</a></h3>
 <div class="paragraph">
 <p>The product list sorts by the progress bar indicator beside each product&#8217;s description whenever user enters <code>listp</code> command.<br></p>
 </div>
@@ -654,4 +662,4 @@ resulting in user to recheck products' index before entering in commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:51:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:39:59 UTC</div></div></div></body></html>

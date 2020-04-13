@@ -15,8 +15,8 @@
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#general">4.1. General</a></li>
-<li><a href="#customer">4.2. Customer</a></li>
-<li><a href="#product">4.3. Product</a></li>
+<li><a href="#manage-customers">4.2. Manage customers</a></li>
+<li><a href="#manage-product">4.3. Manage product</a></li>
 <li><a href="#transaction">4.4. Transaction</a></li>
 <li><a href="#statistics">4.5. Statistics</a></li>
 </ul>
@@ -161,7 +161,13 @@ Pay attention to the warnings before you execute the command, or else things may
 <div class="sect3">
 <h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>help</code>
+View the user guide page in a pop-out window.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/Help.png" alt="Help">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -285,10 +291,10 @@ This is to help the user easier to know which products are running low on stock.
 </td>
 <td class="content">
 This is a passive feature.<br>
-Green: &gt;0.6<br>
-Yellow: 0.6<br>
-Orange: 0.4<br>
-Red: 0.2
+Green: stock &gt; 60%<br>
+Yellow: 40% &lt; stock &lt; 60%<br>
+Orange: 20% &lt; stock &lt; 40%<br>
+Red: stock &lt; 20%
 </td>
 </tr>
 </table>
@@ -296,7 +302,7 @@ Red: 0.2
 </div>
 </div>
 <div class="sect2">
-<h3 id="customer"><a class="link" href="#customer">4.2. Customer</a></h3>
+<h3 id="manage-customers"><a class="link" href="#manage-customers">4.2. Manage customers</a></h3>
 <div class="sect3">
 <h4 id="adding-a-customer-code-addc-code"><a class="link" href="#adding-a-customer-code-addc-code">4.2.1. Adding a customer: <code>addc</code></a></h4>
 <div class="paragraph">
@@ -323,7 +329,11 @@ Format: <code>addc n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…</code>
 <p>The phone field can be between 3 to 15 characters long and contain only integers.<br></p>
 </li>
 <li>
-<p>The  email field can take up to 40 characters and should be a valid email format.</p>
+<p>The  email field can take up to 40 characters and should be a valid email format.<br></p>
+</li>
+<li>
+<p>Duplicate fields, except tags, are not allowed. E.g. keying in the email field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -388,6 +398,10 @@ Format: <code>editc INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​
 <li>
 <p>You can remove all the customer’s tags by typing t/ without specifying any tags after it.</p>
 </li>
+<li>
+<p>Duplicate fields, except tags, are not allowed. E.g. keying in the email field for more
+than one time.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -435,6 +449,10 @@ Format: <code>findc [n/NAME [NAME]&#8230;&#8203;] [p/PHONE] [e/EMAIL] [a/ADDRESS
 </li>
 <li>
 <p>Customers matching any keywords in an attribute (for name and address only) will be returned (i.e. OR search) e.g. <code>findc a/clementi ave</code> will return customers with 'clementi' or 'ave' in their addresses</p>
+</li>
+<li>
+<p>Duplicate fields, except tags, are not allowed. E.g. keying in the phone field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -557,7 +575,7 @@ Deletes all transactions as well.
 </div>
 </div>
 <div class="sect2">
-<h3 id="product"><a class="link" href="#product">4.3. Product</a></h3>
+<h3 id="manage-product"><a class="link" href="#manage-product">4.3. Manage product</a></h3>
 <div class="sect3">
 <h4 id="adding-a-product-code-addp-code"><a class="link" href="#adding-a-product-code-addp-code">4.3.1. Adding a product: <code>addp</code></a></h4>
 <div class="paragraph">
@@ -576,6 +594,10 @@ Format: <code>addp d/DESCRIPTION pr/PRICE q/QUANTITY cp/COSTPRICE [s/SALES]</cod
 </li>
 <li>
 <p>The price and cost price must be at least $1.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the price field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -661,6 +683,10 @@ Format: <code>editp INDEX [d/DESCRIPTION] [pr/PRICE] [q/QUANTITY] [cp/COSTPRICE]
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the price field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -765,7 +791,7 @@ Format: <code>deletep INDEX</code></p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Deletes transactions that are associated with this particular product as well.
+This action deletes transactions that are associated with this particular product as well.
 </td>
 </tr>
 </table>
@@ -838,6 +864,10 @@ Format: <code>addt p/PRODUCT_ID c/CUSTOMER_ID q/QUANTITY [dt/DATETIME] [m/MONEY]
 <li>
 <p>The quantity must be at least 1.</p>
 </li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the quantity field for more
+than one time.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -854,6 +884,18 @@ The money field [m/] is optional, and will be recorded as product price multipli
 Only need to enter if necessary (i.e. discounts on products).<br>
 The description field [d/] is optional, will be recorded as N/A if left empty.
 Only need to enter if user wants to add notes to the transaction.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Adding transaction will update the quantity and sales of its associated product as well.
 </td>
 </tr>
 </table>
@@ -914,9 +956,26 @@ Format: <code>editt INDEX [p/PRODUCT_ID] [c/CUSTOMER_ID] [dt/DATE_TIME] [q/QUANT
 <li>
 <p>Existing values will be updated to the input values.</p>
 </li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the quantity field for more
+than one time.</p>
+</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Editting the quantity or money of a transaction will update the quantity and sales
+of its associated product as well.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -947,13 +1006,17 @@ Format: <code>findt [p/PRODUCT_NAME [PRODUCT_NAME]&#8230;&#8203;] [c/CUSTOMER_NA
 <p>At least one of the option fields must be provided.</p>
 </li>
 <li>
-<p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, c/Bob m/31 will match m/31 c/Bob</p>
+<p>The order of the keywords and attributes does not matter. e.g. Hans Bo will match Bo Hans, c/Bob m/31 will match m/31 c/Bob.</p>
 </li>
 <li>
-<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and 'bag' in their product names</p>
+<p>Only transactions matching all attributes will be returned (i.e. AND search). e.g. <code>findt c/Jane p/bag</code> will return transactions with 'jane' in their customer names and 'bag' in their product names.</p>
 </li>
 <li>
-<p>Transactions matching any keywords in an attribute (for product or customer name only) will be returned (i.e. OR search) e.g. <code>findt c/jane avery</code> will return transactions with 'jane' or 'avery' in their customer names</p>
+<p>Transactions matching any keywords in an attribute (for product or customer name only) will be returned (i.e. OR search) e.g. <code>findt c/jane avery</code> will return transactions with 'jane' or 'avery' in their customer names.</p>
+</li>
+<li>
+<p>Duplicate fields are not allowed. E.g. keying in the <code>DATE_TIME</code> field for more
+than one time.</p>
 </li>
 </ul>
 </div>
@@ -1466,4 +1529,4 @@ e.g. <code>plotsales 1 sd/2020-03-20 10:00 ed/2020-03-30 10:00</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:51:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:39:59 UTC</div></div></div></body></html>
